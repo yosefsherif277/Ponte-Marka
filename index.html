@@ -1,0 +1,2862 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta
+      name="description"
+      content="Ponte Marka is a company specialized in providing innovative and modern solutions in design, marketing, and digital services, focusing on quality, customer satisfaction, and delivering an exceptional user experience."
+    />
+    <title>Ponte Marka</title>
+
+    <!-- Preconnect لتحسين تحميل الخطوط -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&family=Raleway:wght@100;200;300;400;500;600;700;800;900&family=Nunito:wght@200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap + Icons -->
+    <link
+      rel="preload"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      as="style"
+      onload="this.rel='stylesheet'"
+    />
+
+    <!-- ICONS -->
+    <link
+      rel="preload"
+      href="assets/icons-main/font/bootstrap-icons.css"
+      as="style"
+      onload="this.rel='stylesheet'"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      rel="preload"
+      href="assets/fontawesome-free-7.1.0-web/css/all.min.css"
+      as="style"
+      onload="this.rel='stylesheet'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="assets/fontawesome-free-7.1.0-web/css/all.min.css"
+      />
+    </noscript>
+
+    <!-- GLightbox -->
+    <link
+      rel="preload"
+      href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css"
+      as="style"
+      onload="this.rel='stylesheet'"
+    />
+
+    <!-- ❗ حذف Twemoji CDN لأنه السبب في عدم ظهور الصور على الموبايل -->
+    <!-- ❗ استبداله لاحقاً بـ SVG flags مباشرة داخل الـ HTML -->
+
+    <!-- Preload LCP Image -->
+    <link
+      rel="preload"
+      as="image"
+      href="images/head/kajo.webp"
+      fetchpriority="high"
+    />
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="css/main.css" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/webp" href="images/about/icon_tap.webp" />
+  </head>
+  <body>
+    <header id="header" class="header d-flex align-items-center sticky-top">
+      <div
+        class="container position-relative d-flex align-items-center justify-content-between"
+      >
+        <a href="index.html" class="logo d-flex align-items-center me-auto">
+          <img
+            src="images/about/nav_logo-head.webp"
+            e
+            class="w-100 h-100"
+            alt="PONTE MARKA Logo"
+            width="347"
+            height="90"
+          />
+        </a>
+
+        <!-- أيقونة اللغة - موبايل -->
+        <div
+          class="language-toggle d-xl-none position-absolute"
+          style="right: 30px; top: 15px"
+        >
+          <a
+            href="#"
+            class="nav-link dropdown-toggle"
+            id="langDropdownMobile"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-label="Language menu"
+          >
+            <i class="fas fa-globe fs-5"></i>
+          </a>
+          <ul
+            class="dropdown-menu dropdown-menu-end"
+            aria-labelledby="langDropdownMobile"
+          >
+            <li>
+              <a class="dropdown-item" href="#" onclick="changeLang('en')">
+                <img
+                  src="https://flagcdn.com/us.svg"
+                  width="24"
+                  alt="USA Flag"
+                  class="me-3"
+                />
+                English</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" href="#" onclick="changeLang('it')"
+                ><img
+                  src="https://flagcdn.com/it.svg"
+                  width="24"
+                  height="24"
+                  alt="Italy Flag"
+                  class="me-3"
+                />Italian</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" href="#" onclick="changeLang('ar')"
+                ><img
+                  src="https://flagcdn.com/sa.svg"
+                  width="24"
+                  alt="Saudi Arabia Flag"
+                  class="me-3"
+                />العربيه</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <!-- أيقونة الموبايل -->
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+
+        <!-- Nav للديسكتوب -->
+        <nav id="navmenu" class="navmenu me-auto me-xl-0">
+          <ul>
+            <li>
+              <a href="#home" class="active" data-i18n="nav.home">Home</a>
+            </li>
+            <li><a href="#about" data-i18n="nav.about">About Us</a></li>
+            <li><a href="#services" data-i18n="nav.services">Services</a></li>
+            <li><a href="#Gallery" data-i18n="nav.gallery">Gallery</a></li>
+            <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
+          </ul>
+        </nav>
+
+        <!-- أيقونة اللغة - ديسكتوب (أقصى يمين) -->
+        <div class="language-toggle d-none d-xl-flex ms-4">
+          <a
+            href="#"
+            class="nav-link dropdown-toggle"
+            id="langDropdownDesktop"
+            role="button"
+            data-bs-toggle="dropdown"
+          >
+            <i class="fas fa-globe fs-5"></i>
+          </a>
+          <ul
+            class="dropdown-menu dropdown-menu-end"
+            aria-labelledby="langDropdownDesktop"
+          >
+            <li>
+              <a class="dropdown-item" href="#" onclick="changeLang('en')"
+                ><img
+                  src="https://flagcdn.com/us.svg"
+                  width="24"
+                  alt="USA Flag"
+                  class="me-3"
+                />
+                English</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" href="#" onclick="changeLang('it')"
+                ><img
+                  src="https://flagcdn.com/it.svg"
+                  width="24"
+                  height="24"
+                  alt="Italy Flag"
+                  class="me-3"
+                />
+                Italian</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" href="#" onclick="changeLang('ar')"
+                ><img
+                  src="https://flagcdn.com/sa.svg"
+                  width="24"
+                  alt="Saudi Arabia Flag"
+                  class="me-3"
+                />
+                العربية</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+    <div class="navmenu-overlay"></div>
+
+    <main class="main">
+      <!-- Hero Section -->
+      <section id="home" class="hero section dark-background">
+        <div
+          id="hero-carousel"
+          class="carousel slide carousel-fade"
+          data-bs-ride="carousel"
+          data-bs-interval="3000"
+          data-bs-wrap="true"
+          data-bs-pause="false"
+        >
+          <!-- Carousel Item 1 -->
+          <div class="carousel-item active">
+            <img
+              src="images/head/cashew-off-head.webp"
+              alt="Premium Cashew Nuts from Tanzania"
+              width="1920"
+              height="1080"
+              fetchpriority="high"
+              loading="eager"
+              decoding="async"
+            />
+            <div class="container">
+              <h2 data-i18n="hero.item1.title">Cashew Nuts</h2>
+              <p data-i18n="hero.item1.desc" class="sick">
+                Premium-grade cashew nuts carefully sourced for their rich
+                flavor, creamy texture, and high nutritional value. Ideal for
+                roasting, confectionery, healthy snacks, and food manufacturing
+                thanks to their consistent quality and freshness.
+              </p>
+              <a
+                href="#Gallery"
+                class="btn-get-started"
+                data-i18n="hero.item1.btn"
+                id="readMoreCashew"
+                >Read More</a
+              >
+            </div>
+          </div>
+
+          <!-- Carousel Item 2 -->
+          <div class="carousel-item">
+            <img src="images/cloves/cloves-1.webp" alt="Green Coffee Beans" />
+            <div class="container">
+              <h2 data-i18n="hero.item2.title">Premium Cloves</h2>
+              <p data-i18n="hero.item2.desc" class="sick">
+                Hand-picked Tanzanian cloves known for their strong aroma and
+                rich essential oils. Perfect for food processing, herbal blends,
+                and pharmaceutical use due to their high oil content and
+                consistent quality.
+              </p>
+              <a
+                href="#Gallery"
+                class="btn-get-started"
+                data-i18n="hero.item2.btn"
+                id="readMoreCloves"
+                >Read More</a
+              >
+            </div>
+          </div>
+
+          <!-- Carousel Item 3 -->
+          <div class="carousel-item">
+            <img
+              src="images/head/head-size/company.webp"
+              alt="PONTE MARKA"
+              fetchpriority="high"
+            />
+            <div class="container">
+              <h2 data-i18n="hero.item3.title">PONTE MARKA</h2>
+              <p data-i18n="hero.item3.desc" class="sick">
+                PONTE MARKA is a leading exporter and supplier of premium
+                agricultural products, specializing in cashews, cloves, beans,
+                and cardamom. We are committed to quality, sustainability, and
+                providing our clients with the finest produce directly sourced
+                from Tanzanian farms.
+              </p>
+              <a
+                href="#about"
+                class="btn-get-started"
+                data-i18n="hero.item3.btn"
+                >Read More</a
+              >
+            </div>
+          </div>
+
+          <!-- Carousel Item 4 -->
+          <div class="carousel-item">
+            <img
+              src="images/head/head-size/beenscopy.webp"
+              alt="Premium Raw Cashew Nuts"
+              class="img-fluid"
+            />
+            <div class="container">
+              <h2 data-i18n="hero.item4.title">Premium Speckled Beans</h2>
+              <p data-i18n="hero.item4.desc" class="sick">
+                Popular speckled beans available in purple or brown mottled
+                varieties. Known for their attractive appearance, good swelling
+                capacity, and strong market demand. Widely cultivated across
+                multiple regions in Tanzania.
+              </p>
+              <a
+                href="#Gallery"
+                class="btn-get-started"
+                data-i18n="hero.item4.btn"
+                id="readMoreBeans"
+                >Read More</a
+              >
+            </div>
+          </div>
+
+          <!-- Carousel Item 5 -->
+          <div class="carousel-item">
+            <img
+              src="images/head/blackpepper-off-head.webp"
+              alt="Black Pepper"
+              class="img-fluid"
+            />
+            <div class="container">
+              <h2 data-i18n="hero.item5.title">Black Pepper</h2>
+              <p data-i18n="hero.item5.desc" class="sick">
+                Naturally black pepper with bold aroma and high piperine levels.
+                Uniform dark berries suitable for spice processors, wholesalers,
+                and premium retail packaging.
+              </p>
+              <a
+                href="#Gallery"
+                class="btn-get-started"
+                data-i18n="hero.item5.btn"
+                id="readMoreBlackPepper"
+                >Read More</a
+              >
+            </div>
+          </div>
+
+          <!-- Carousel Item 6 -->
+          <div class="carousel-item">
+            <img
+              src="images/head/head-size/cardmomcopy.webp"
+              alt="Dried Green Cardmom"
+              class="img-fluid"
+            />
+            <div class="container">
+              <h2 data-i18n="hero.item6.title">Dried Green Cardmom</h2>
+              <p data-i18n="hero.item6.desc" class="sick">
+                Naturally green cardamom pods with a rich, aromatic flavor.
+                Uniform and bright green, ideal for spice processors,
+                wholesalers, and premium retail packaging.
+              </p>
+              <a
+                href="#Gallery"
+                class="btn-get-started"
+                data-i18n="hero.item6.btn"
+                id="readMoreCardamom"
+                >Read More</a
+              >
+            </div>
+          </div>
+
+          <!-- Carousel Controls -->
+          <!-- Controls -->
+          <!-- Carousel Controls -->
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#hero-carousel"
+            data-bs-slide="prev"
+            aria-label="Previous slide"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          </button>
+
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#hero-carousel"
+            data-bs-slide="next"
+            aria-label="Next slide"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          </button>
+          <!-- Carousel Indicators -->
+          <div class="carousel-indicators">
+            <button
+              type="button"
+              data-bs-target="#hero-carousel"
+              data-bs-slide-to="0"
+              class="active"
+              aria-current="true"
+              aria-label="Slide 1"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#hero-carousel"
+              data-bs-slide-to="1"
+              aria-label="Slide 2"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#hero-carousel"
+              data-bs-slide-to="2"
+              aria-label="Slide 3"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#hero-carousel"
+              data-bs-slide-to="3"
+              aria-label="Slide 4"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#hero-carousel"
+              data-bs-slide-to="4"
+              aria-label="Slide 5"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#hero-carousel"
+              data-bs-slide-to="5"
+              aria-label="Slide 6"
+            ></button>
+          </div>
+          <!-- Carousel Controls & Indicators stay unchanged -->
+        </div>
+      </section>
+      <!-- /Hero Section -->
+
+      <!-- About Section -->
+      <section id="about" class="about-pro-section py-5 light-background">
+        <div class="container">
+          <!-- Header -->
+          <div class="text-center mb-5 px-3">
+            <h2 class="h2 fw-bold mb-3">Ponte Marka</h2>
+            <div class="section-divider mx-auto mb-3"></div>
+          </div>
+
+          <div
+            class="row g-4 align-items-start flex-column-reverse flex-lg-row"
+          >
+            <!-- Left: Accordions -->
+            <div class="col-lg-6 pe-lg-4">
+              <div class="accordion-pro shadow-lg" id="aboutAccordion">
+                <!-- 1. Corporate Identity -->
+                <div class="accordion-item-pro mb-3">
+                  <h3 class="accordion-header">
+                    <button
+                      class="accordion-button-pro"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#collapseOne"
+                      aria-expanded="true"
+                    >
+                      <i class="bi bi-building icon-pro me-3"></i>
+                      Our Corporate Identity
+                    </button>
+                  </h3>
+                  <div
+                    id="collapseOne"
+                    class="accordion-collapse collapse show"
+                    data-bs-parent="#aboutAccordion"
+                  >
+                    <div class="accordion-body-pro">
+                      <h5 class="fw-bold mb-3 title-pro">
+                        Ponte Marka: Beyond Trade.. A Knowledge-Tech Bridge
+                      </h5>
+                      <p class="text-pro mb-4">
+                        Ponte Marka S.R.L. is a pioneering Innovative Startup
+                        (Hub Innovativo) born from academic research to redefine
+                        global trade in premium agri-food products between
+                        Tanzania and Italy. We don't just deliver "commodities";
+                        we provide "technological assets backed by scientific
+                        narratives."
+                      </p>
+                      <div class="row g-3">
+                        <div class="col-12">
+                          <div class="vision-item">
+                            <i class="bi bi-eye icon-pro-success"></i>
+                            <div>
+                              <h6 class="fw-bold mb-1">Our Vision:</h6>
+                              <p class="mb-0 text-muted">
+                                To become Europe's premier reference for
+                                connecting African agricultural excellence with
+                                Italian industrial standards through the
+                                "Knowledge Economy."
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-12">
+                          <div class="vision-item">
+                            <i class="bi bi-geo-alt icon-pro-success"></i>
+                            <div>
+                              <h6 class="fw-bold mb-1">Our Mission:</h6>
+                              <p class="mb-0 text-muted">
+                                To ensure the highest levels of transparency and
+                                quality by integrating Blockchain technology and
+                                academic research into a "Farm-to-Fork" supply
+                                chain.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 2. Leadership Team -->
+                <div class="accordion-item-pro mb-3">
+                  <h3 class="accordion-header">
+                    <button
+                      class="accordion-button-pro collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#collapseTwo"
+                    >
+                      <i class="bi bi-people icon-pro me-3"></i>
+                      Leadership Team: The Synergy of Science and Operations
+                    </button>
+                  </h3>
+                  <div
+                    id="collapseTwo"
+                    class="accordion-collapse collapse"
+                    data-bs-parent="#aboutAccordion"
+                  >
+                    <div class="accordion-body-pro">
+                      <p class="text-pro mb-4">
+                        Our legal legitimacy and innovative status stem from the
+                        unique synergy between our founders, where "Scientific
+                        Precision" meets "Cross-Border Field Expertise."
+                      </p>
+
+                      <!-- Dr. Ahmed Sherif -->
+                      <div class="leadership-card mb-4">
+                        <div class="d-flex align-items-start mb-3">
+                          <div class="leadership-avatar">
+                            <i class="bi bi-person-circle"></i>
+                          </div>
+                          <div class="flex-grow-1">
+                            <h4 class="fw-bold mb-2">
+                              Dr. Ahmed Sherif
+                              <span class="badge-pro">Founder & CEO</span>
+                            </h4>
+                            <p class="quote-pro mb-2">
+                              "A Wisdom Bridge between Research, Customs
+                              Integrity, and Global Markets"
+                            </p>
+                            <span class="status-pro"
+                              >Personnel Highly Qualified</span
+                            >
+                          </div>
+                        </div>
+                        <div class="row g-2">
+                          <div class="col-12 col-md-4">
+                            <div class="feature-item">
+                              <i class="bi bi-mortarboard icon-pro-success"></i>
+                              Elite Academic Excellence: Double PhD Sapienza
+                              Rome & Udine/Trieste
+                            </div>
+                          </div>
+                          <div class="col-12 col-md-4">
+                            <div class="feature-item">
+                              <i
+                                class="bi bi-shield-check icon-pro-success"
+                              ></i>
+                              Institutional Integrity: Italian Customs
+                              interpreter
+                            </div>
+                          </div>
+                          <div class="col-12 col-md-4">
+                            <div class="feature-item">
+                              <i
+                                class="bi bi-file-earmark-text icon-pro-success"
+                              ></i>
+                              Legal Guarantee: Sworn Interpreter Italian Courts
+                            </div>
+                          </div>
+                        </div>
+                        <div class="mt-3">
+                          <a
+                            href="https://air.uniud.it/cris/rp/rp47979"
+                            target="_blank"
+                            class="btn-pro-sm me-2"
+                            >LinkedIn Profile</a
+                          >
+                        </div>
+                      </div>
+
+                      <!-- Ahmed Shehata -->
+                      <div class="leadership-card">
+                        <div class="d-flex align-items-start mb-3">
+                          <div class="leadership-avatar success-avatar">
+                            <i class="bi bi-person-badge"></i>
+                          </div>
+                          <div class="flex-grow-1">
+                            <h4 class="fw-bold mb-2">
+                              Sig. Ahmed Shehata
+                              <span class="badge-pro success-badge"
+                                >Board Member & Strategic Advisor</span
+                              >
+                            </h4>
+                            <p class="quote-pro mb-2">
+                              "The Engine of Ethical Sourcing and Supply Chain
+                              Intelligence in Africa"
+                            </p>
+                            <span class="status-pro">Executive Arm</span>
+                          </div>
+                        </div>
+                        <div class="row g-2">
+                          <div class="col-12 col-md-4">
+                            <div class="feature-item">
+                              <i
+                                class="bi bi-geo-alt-fill icon-pro-success"
+                              ></i>
+                              Field Leadership: 15+ years Africa, Tanzania
+                              Branch Manager
+                            </div>
+                          </div>
+                          <div class="col-12 col-md-4">
+                            <div class="feature-item">
+                              <i class="bi bi-graph-up icon-pro-success"></i>
+                              Business Intelligence: Cambridge-certified
+                              Marketing
+                            </div>
+                          </div>
+                          <div class="col-12 col-md-4">
+                            <div class="feature-item">
+                              <i class="bi bi-link-45deg icon-pro-success"></i>
+                              Blockchain Traceability: Farm-level digital
+                              systems
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 3. Identity Synthesis -->
+                <div class="accordion-item-pro">
+                  <h3 class="accordion-header">
+                    <button
+                      class="accordion-button-pro collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#collapseThree"
+                    >
+                      <i class="bi bi-lightning-charge icon-pro me-3"></i>
+                      Identity Synthesis: A Symphony of Innovation
+                    </button>
+                  </h3>
+                  <div
+                    id="collapseThree"
+                    class="accordion-collapse collapse"
+                    data-bs-parent="#aboutAccordion"
+                  >
+                    <div class="accordion-body-pro text-center">
+                      <blockquote class="blockquote-pro">
+                        "At Ponte Marka, science meets action and expertise
+                        meets application. The mind that designs the
+                        technological and nutraceutical value of the product
+                        aligns with the expert hand that ensures its excellence
+                        from the heart of Africa."
+                      </blockquote>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right: Image -->
+            <div class="col-lg-6">
+              <div class="about-image-sticky">
+                <div
+                  class="about-image-container position-relative rounded-4 shadow-lg overflow-hidden"
+                >
+                  <img
+                    src="images/about/about-size/about_companycopy.webp"
+                    class="w-100 h-100 object-fit-cover"
+                    alt="About Ponte Marka"
+                  />
+                  <div class="image-badge">
+                    <span class="badge-pro">Innovation Hub</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- /About Section -->
+
+      <!-- Services Section -->
+      <section id="services" class="services section light-background">
+        <div class="container">
+          <div class="row gy-4">
+            <!-- Service Item 1 -->
+            <div
+              class="col-lg-4 col-md-6"
+              data-aos="fade-up"
+              data-aos-delay="100"
+            >
+              <div class="service-item item-cyan position-relative">
+                <div class="icon">
+                  <svg
+                    width="100"
+                    height="100"
+                    viewBox="0 0 600 600"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      stroke="none"
+                      stroke-width="0"
+                      fill="#f5f5f5"
+                      d="M300,521.0016835830174C376.1290562159157,517.8887921683347,466.0731472004068,529.7835943286574,510.70327084640275,468.03025145048787C554.3714126377745,407.6079735673963,508.03601936045806,328.9844924480964,491.2728898941984,256.3432110539036C474.5976632858925,184.082847569629,479.9380746630129,96.60480741107993,416.23090153303,58.64404602377083C348.86323505073057,18.502131276798302,261.93793281208167,40.57373210992963,193.5410806939664,78.93577620505333C130.42746243093433,114.334589627462,98.30271207620316,179.96522072025542,76.75703585869454,249.04625023123273C51.97151888228291,328.5150500222984,13.704378332031375,421.85034740162234,66.52175969318436,486.19268352777647C119.04800174914682,550.1803526380478,217.28368757567262,524.383925680826,300,521.0016835830174"
+                    ></path>
+                  </svg>
+                  <i class="bi bi-eye"></i>
+                </div>
+                <h3 data-i18n="services.vision.title">Vision</h3>
+                <p data-i18n="services.vision.desc">
+                  To be the bridge of excellence connecting Tanzania's natural
+                  richness to global markets, ensuring every product tells a
+                  story of quality, sustainability, and international
+                  cooperation.
+                </p>
+              </div>
+            </div>
+
+            <!-- Service Item 2 -->
+            <div
+              class="col-lg-4 col-md-6"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              <div class="service-item item-orange position-relative">
+                <div class="icon">
+                  <svg
+                    width="100"
+                    height="100"
+                    viewBox="0 0 600 600"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      stroke="none"
+                      stroke-width="0"
+                      fill="#f5f5f5"
+                      d="M300,582.0697525312426C382.5290701553225,586.8405444964366,449.9789794690241,525.3245884688669,502.5850820975895,461.55621195738473C556.606425686781,396.0723002908107,615.8543463187945,314.28637112970534,586.6730223649479,234.56875336149918C558.9533121215079,158.8439757836574,454.9685369536778,164.00468322053177,381.49747125262974,130.76875717737553C312.15926192815925,99.40240125094834,248.97055460311594,18.661163978235184,179.8680185752513,50.54337015887873C110.5421016452524,82.52863877960104,119.82277516462835,180.83849132639028,109.12597500060166,256.43424936330496C100.08760227029461,320.3096726198365,92.17705696193138,384.0621239912766,124.79988738764834,439.7174275375508C164.83382741302287,508.01625554203684,220.96474134820875,577.5009287672846,300,582.0697525312426"
+                    ></path>
+                  </svg>
+                  <i class="bi bi-check2-square"></i>
+                </div>
+                <h3 data-i18n="services.mission.title">Mission</h3>
+                <p data-i18n="services.mission.desc">
+                  To cultivate, select, and export premium sisal fibers, cashew
+                  nuts, and spices, managing the full supply chain from land to
+                  shipment with rigorous phytosanitary standards.
+                </p>
+              </div>
+            </div>
+
+            <!-- Service Item 3 -->
+            <div
+              class="col-lg-4 col-md-6"
+              data-aos="fade-up"
+              data-aos-delay="300"
+            >
+              <div class="service-item item-teal position-relative">
+                <div class="icon">
+                  <svg
+                    width="100"
+                    height="100"
+                    viewBox="0 0 600 600"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      stroke="none"
+                      stroke-width="0"
+                      fill="#f5f5f5"
+                      d="M300,541.5067337569781C382.14930387511276,545.0595476570109,479.8736841581634,548.3450877840088,526.4010558755058,480.5488172755941C571.5218469581645,414.80211281144784,517.5187510058486,332.0715597781072,496.52539010469104,255.14436215662573C477.37192572678356,184.95920475031193,473.57363656557914,105.61284051026155,413.0603344069578,65.22779650032875C343.27470386102294,18.654635553484475,251.2091493199835,5.337323636656869,175.0934190732945,40.62881213300186C97.87086631185822,76.43348514350839,51.98124368387456,156.15599469081315,36.44837278890362,239.84606092416172C21.716077023791087,319.22268207091537,43.775223500013084,401.1760424656574,96.891909868211,461.97329694683043C147.22146801428983,519.5804099606455,223.5754009179313,538.201503339737,300,541.5067337569781"
+                    ></path>
+                  </svg>
+                  <i class="bi bi-shield-check"></i>
+                </div>
+                <h3 data-i18n="services.integrity.title">Integrity & Trust</h3>
+                <p data-i18n="services.integrity.desc">
+                  We uphold absolute transparency and build long-term trust with
+                  every business partner, fostering reliable and enduring
+                  international relationships.
+                </p>
+              </div>
+            </div>
+
+            <!-- Service Item 4 -->
+            <div
+              class="col-lg-4 col-md-6"
+              data-aos="fade-up"
+              data-aos-delay="400"
+            >
+              <div class="service-item item-red position-relative">
+                <div class="icon">
+                  <svg
+                    width="100"
+                    height="100"
+                    viewBox="0 0 600 600"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      stroke="none"
+                      stroke-width="0"
+                      fill="#f5f5f5"
+                      d="M300,503.46388370962813C374.79870501325706,506.71871716319447,464.8034551963731,527.1746412648533,510.4981551193396,467.86667711651364C555.9287308511215,408.9015244558933,512.6030010748507,327.5744911775523,490.211057578863,256.5855673507754C471.097692560561,195.9906835881958,447.69079081568157,138.11976852964426,395.19560036434837,102.3242989838813C329.3053358748298,57.3949838291264,248.02791733380457,8.279543830951368,175.87071277845988,42.242879143198664C103.41431057327972,76.34704239035025,93.79494320519305,170.9812938413882,81.28167332365135,250.07896920659033C70.17666984294237,320.27484674793965,64.84698225790005,396.69656628748305,111.28512138212992,450.4950937839243C156.20124167950087,502.5303643271138,231.32542653798444,500.4755392045468,300,503.46388370962813"
+                    ></path>
+                  </svg>
+                  <i class="bi bi-award"></i>
+                </div>
+                <h3 data-i18n="services.quality.title">Certified Quality</h3>
+                <p data-i18n="services.quality.desc">
+                  Strict adherence to international standards including
+                  Phytosanitary, Fumigation, and Export compliance ensures
+                  premium product quality.
+                </p>
+              </div>
+            </div>
+
+            <!-- Service Item 5 -->
+            <div
+              class="col-lg-4 col-md-6"
+              data-aos="fade-up"
+              data-aos-delay="500"
+            >
+              <div class="service-item item-indigo position-relative">
+                <div class="icon">
+                  <svg
+                    width="100"
+                    height="100"
+                    viewBox="0 0 600 600"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      stroke="none"
+                      stroke-width="0"
+                      fill="#f5f5f5"
+                      d="M300,532.3542879108572C369.38199826031484,532.3153073249985,429.10787420159085,491.63046689027357,474.5244479745417,439.17860296908856C522.8885846962883,383.3225815378663,569.1668002868075,314.3205725914397,550.7432151929288,242.7694973846089C532.6665558377875,172.5657663291529,456.2379748765914,142.6223662098291,390.3689995646985,112.34683881706744C326.66090330228417,83.06452184765237,258.84405631176094,53.51806209861945,193.32584062364296,78.48882559362697C121.61183558270385,105.82097193414197,62.805066853699245,167.19869350419734,48.57481801355237,242.6138429142374C34.843463184063346,315.3850353017275,76.69343916112496,383.4422959591041,125.22947124332185,439.3748458443577C170.7312796277747,491.8107796887764,230.57421082200815,532.3932930995766,300,532.3542879108572"
+                    ></path>
+                  </svg>
+                  <i class="bi bi-globe2 icon"></i>
+                </div>
+                <h3 data-i18n="services.glocal.title">Glocal Approach</h3>
+                <p data-i18n="services.glocal.desc">
+                  Strong local roots in Tanzania combined with global
+                  operational standards guarantee sustainable and professional
+                  business practices.
+                </p>
+              </div>
+            </div>
+
+            <!-- Service Item 6 -->
+            <div
+              class="col-lg-4 col-md-6"
+              data-aos="fade-up"
+              data-aos-delay="600"
+            >
+              <div class="service-item item-pink position-relative">
+                <div class="icon">
+                  <svg
+                    width="100"
+                    height="100"
+                    viewBox="0 0 600 600"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      stroke="none"
+                      stroke-width="0"
+                      fill="#f5f5f5"
+                      d="M300,566.797414625762C385.7384707136149,576.1784315230908,478.7894351017131,552.8928747891023,531.9192734346935,484.94944893311C584.6109503024035,417.5663521118492,582.489472248146,322.67544863468447,553.9536738515405,242.03673114598146C529.1557734026468,171.96086150256528,465.24506316201064,127.66468636344209,395.9583748389544,100.7403814666027C334.2173773831606,76.7482773500951,269.4350130405921,84.62216499799875,207.1952322260088,107.2889140133804C132.92018162631612,134.33871894543012,41.79353780512637,160.00259165414826,22.644507872594943,236.69541883565114C3.319112789854554,314.0945973066697,72.72355303640163,379.243833228382,124.04198916343866,440.3218312028393C172.9286146004772,498.5055451809895,224.45579914871206,558.5317968840102,300,566.797414625762"
+                    ></path>
+                  </svg>
+                  <i class="bi bi-translate"></i>
+                </div>
+                <h3 data-i18n="services.responsive.title">
+                  Responsive & Multilingual
+                </h3>
+                <p data-i18n="services.responsive.desc">
+                  Our website is fully responsive across all devices and
+                  supports multiple languages: English, Italian, and Arabic for
+                  international accessibility.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- /Services Section -->
+
+      <!-- NEW SECTION -->
+      <section
+        id="rnd-bootstrap"
+        class="py-5 bg-gradient"
+        style="background: linear-gradient(135deg, #f8f9ff 0%, #e8f4f8 100%)"
+      >
+        <div class="container">
+          <!-- Modern Heading -->
+          <div class="text-center mb-5 px-3">
+            <span
+              class="badge bg-success bg-opacity-75 px-3 py-2 fw-semibold mb-3 d-inline-block"
+              >R&D Excellence</span
+            >
+            <h2 class="display-5 fw-bold text-dark mb-3 lh-sm">
+              Research & Innovation
+            </h2>
+            <p class="lead text-muted fs-5">
+              Transforming business, leading Ho.Re.Ca sector, digital governance
+              for ethical supply chains.
+            </p>
+          </div>
+
+          <!-- Strategic Objectives - 3 Cards Modern -->
+          <div class="row g-4 mb-5 justify-content-center">
+            <div class="col-lg-4 col-md-6">
+              <div
+                class="card h-100 border-0 shadow-lg hover-lift overflow-hidden transition-all"
+              >
+                <div
+                  class="card-body p-5 text-center h-100 d-flex flex-column justify-content-center"
+                >
+                  <div class="icon-circle mb-4 mx-auto">
+                    <i class="bi bi-lightbulb-fill text-warning fs-1"></i>
+                  </div>
+                  <h4 class="h3 fw-bold text-dark mb-3">
+                    Business Transformation
+                  </h4>
+                  <p class="text-muted lead fs-6 mb-0 flex-grow-1">
+                    High-tech services merging IT with agricultural &
+                    pharmaceutical research.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+              <div
+                class="card h-100 border-0 shadow-lg hover-lift overflow-hidden transition-all"
+              >
+                <div
+                  class="card-body p-5 text-center h-100 d-flex flex-column justify-content-center"
+                >
+                  <div class="icon-circle mb-4 mx-auto">
+                    <i class="bi bi-trophy-fill text-primary fs-1"></i>
+                  </div>
+                  <h4 class="h3 fw-bold text-dark mb-3">Ho.Re.Ca Leadership</h4>
+                  <p class="text-muted lead fs-6 mb-0 flex-grow-1">
+                    "Digital Product Passport" for premium pastry & gelato
+                    shops.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+              <div
+                class="card h-100 border-0 shadow-lg hover-lift overflow-hidden transition-all"
+              >
+                <div
+                  class="card-body p-5 text-center h-100 d-flex flex-column justify-content-center"
+                >
+                  <div class="icon-circle mb-4 mx-auto">
+                    <i class="bi bi-shield-lock-fill text-success fs-1"></i>
+                  </div>
+                  <h4 class="h3 fw-bold text-dark mb-3">Digital Governance</h4>
+                  <p class="text-muted lead fs-6 mb-0 flex-grow-1">
+                    Traceability ensuring transparency & fair pricing for
+                    farmers.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Modern Tabs -->
+          <div class="row justify-content-center mb-5">
+            <div class="col-lg-10">
+              <ul
+                class="nav nav-pills nav-fill gap-3 justify-content-center mb-4 px-3"
+                id="rndTab"
+                role="tablist"
+              >
+                <li class="nav-item flex-fill" role="presentation">
+                  <button
+                    class="nav-link active w-100 py-3 px-4 rounded-3 shadow-sm border-0 tab-btn"
+                    id="social-tab"
+                    data-bs-toggle="tab"
+                    data-bs-target="#social"
+                  >
+                    <i class="bi bi-heart-fill me-2"></i>Innovative Social
+                    Purpose
+                  </button>
+                </li>
+                <li class="nav-item flex-fill" role="presentation">
+                  <button
+                    class="nav-link w-100 py-3 px-4 rounded-3 shadow-sm border-0 tab-btn"
+                    id="technical-tab"
+                    data-bs-toggle="tab"
+                    data-bs-target="#technical"
+                  >
+                    <i class="bi bi-cpu-fill me-2"></i>Technical Components
+                  </button>
+                </li>
+              </ul>
+
+              <div
+                class="tab-content border rounded-4 p-5 shadow-lg bg-white"
+                id="rndTabContent"
+              >
+                <div
+                  class="tab-pane fade show active"
+                  id="social"
+                  role="tabpanel"
+                >
+                  <div class="row g-4">
+                    <div class="col-md-4">
+                      <div class="feature-item">
+                        <i class="bi bi-link-45deg text-success"></i>Supply
+                        Chain Digitalization: Blockchain quality control
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="feature-item">
+                        <i class="bi bi-mortarboard-fill text-success"></i
+                        >Educational Innovation: Scientific Storytelling
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="feature-item">
+                        <i class="bi bi-graph-up-arrow text-success"></i
+                        >Predictive Logistics: AI waste reduction
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="technical" role="tabpanel">
+                  <div class="row g-4">
+                    <div class="col-md-6">
+                      <div class="feature-item">
+                        <i class="bi bi-geo-alt-fill text-primary"></i>Farm
+                        Mapping: GPS & EUDR compliance
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="feature-item">
+                        <i class="bi bi-qr-code-scan text-primary"></i>Dynamic
+                        QR: Immutable harvest data
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="feature-item">
+                        <i class="bi bi-file-earmark-text text-primary"></i
+                        >Smart Contracts: Instant farmer payments
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="feature-item">
+                        <i class="bi bi-cpu text-primary"></i>AI Integration:
+                        Shelf-life prediction
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Modern Accordion -->
+          <div class="row justify-content-center mb-5">
+            <div class="col-lg-10">
+              <div class="accordion accordion-flush" id="productsAccordion">
+                <div
+                  class="accordion-item border-0 shadow-sm mb-3 rounded-3 overflow-hidden"
+                >
+                  <h3 class="accordion-header">
+                    <button
+                      class="accordion-button collapsed fw-bold fs-4 py-4 px-4"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#collapseCashew"
+                    >
+                      <i class="bi bi-nut text-warning me-3 fs-6"></i>Tanzanian
+                      Cashew - "Innovative White Gold"
+                    </button>
+                  </h3>
+                  <div
+                    id="collapseCashew"
+                    class="accordion-collapse collapse"
+                    data-bs-parent="#productsAccordion"
+                  >
+                    <div class="accordion-body p-4 bg-light">
+                      <div class="row g-3">
+                        <div class="col-md-6">
+                          <span class="fw-bold text-success"
+                            >Nutraceutical:</span
+                          >
+                          Unsaturated fatty acids (79.7%) reduce CHD risks.
+                        </div>
+                        <div class="col-md-6">
+                          <span class="fw-bold text-success">Scientific:</span>
+                          Moisture 8-10% prevents mycotoxins.
+                        </div>
+                        <div class="col-md-6">
+                          <span class="fw-bold text-success">Economic:</span>
+                          +28% value-added, supports 500K farmers.
+                        </div>
+                        <div class="col-md-6">
+                          <span class="fw-bold text-success">Refs:</span>
+                          Ramadhani 2014, Rico 2016, TCNB 2024/25.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="accordion-item border-0 shadow-sm mb-3 rounded-3 overflow-hidden"
+                >
+                  <h3 class="accordion-header">
+                    <button
+                      class="accordion-button collapsed fw-bold fs-4 py-4 px-4"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#collapseCardamom"
+                    >
+                      <i class="bi bi-leaf text-success me-3 fs-6"></i>Tanzanian
+                      Cardamom - "Queen of Functional Spices"
+                    </button>
+                  </h3>
+                  <div
+                    id="collapseCardamom"
+                    class="accordion-collapse collapse"
+                    data-bs-parent="#productsAccordion"
+                  >
+                    <div class="accordion-body p-4 bg-light">
+                      <div class="row g-3">
+                        <div class="col-md-6">
+                          <span class="fw-bold text-success"
+                            >Nutraceutical:</span
+                          >
+                          1,8-cineole & α-terpinyl acetate.
+                        </div>
+                        <div class="col-md-6">
+                          <span class="fw-bold text-success">Scientific:</span>
+                          Cardiovascular health benefits.
+                        </div>
+                        <div class="col-12">
+                          <span class="fw-bold text-success">Economic:</span>
+                          5.6% annual growth to 2034.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Ginger -->
+                <div
+                  class="accordion-item border-0 shadow-sm mb-3 rounded-3 overflow-hidden"
+                >
+                  <h3 class="accordion-header">
+                    <button
+                      class="accordion-button collapsed fw-bold fs-4 py-4 px-4"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#collapseGinger"
+                    >
+                      <i class="bi bi-flower1 text-warning me-3 fs-6"></i
+                      >Tanzanian Ginger - "The Natural Anti-inflammatory"
+                    </button>
+                  </h3>
+                  <div
+                    id="collapseGinger"
+                    class="accordion-collapse collapse"
+                    data-bs-parent="#productsAccordion"
+                  >
+                    <div class="accordion-body p-4 bg-light">
+                      <div class="row g-3">
+                        <div class="col-md-6">
+                          <span class="fw-bold text-success"
+                            >Nutraceutical:</span
+                          >
+                          Rich in 6-shogaol, higher biological activity vs
+                          gingerols.
+                        </div>
+                        <div class="col-md-6">
+                          <span class="fw-bold text-success">Scientific:</span>
+                          Modern drying tech enhances shogaol, boosting
+                          antioxidant & anti-tumor capabilities.
+                        </div>
+                        <div class="col-12">
+                          <span class="fw-bold text-success">Economic:</span>
+                          Rising Italian demand for certified organic ginger in
+                          preventive healthcare.
+                        </div>
+                        <div class="col-12">
+                          <span class="fw-bold text-success">Refs:</span>
+                          Tarfaoui 2022, Sahul Hamid 2023.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Zanzibar Clove -->
+                <div
+                  class="accordion-item border-0 shadow-sm mb-3 rounded-3 overflow-hidden"
+                >
+                  <h3 class="accordion-header">
+                    <button
+                      class="accordion-button collapsed fw-bold fs-4 py-4 px-4"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#collapseClove"
+                    >
+                      <i class="bi bi-egg-fried text-warning me-3 fs-6"></i
+                      >Zanzibar Clove - "Phenolic Valorization Leader"
+                    </button>
+                  </h3>
+                  <div
+                    id="collapseClove"
+                    class="accordion-collapse collapse"
+                    data-bs-parent="#productsAccordion"
+                  >
+                    <div class="accordion-body p-4 bg-light">
+                      <div class="row g-3">
+                        <div class="col-md-6">
+                          <span class="fw-bold text-success"
+                            >Nutraceutical:</span
+                          >
+                          Richest Eugenol source (up to 89%), antibacterial &
+                          antifungal.
+                        </div>
+                        <div class="col-md-6">
+                          <span class="fw-bold text-success">Scientific:</span>
+                          UDSM confirms Zanzibar buds superior for foodborne
+                          pathogens.
+                        </div>
+                        <div class="col-12">
+                          <span class="fw-bold text-success">Economic:</span>
+                          Unlocks premium "Food-as-Medicine" EU markets.
+                        </div>
+                        <div class="col-12">
+                          <span class="fw-bold text-success">Refs:</span>
+                          Razafimamonjison 2014, Batiha 2020.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Black Pepper -->
+                <div
+                  class="accordion-item border-0 shadow-sm mb-3 rounded-3 overflow-hidden"
+                >
+                  <h3 class="accordion-header">
+                    <button
+                      class="accordion-button collapsed fw-bold fs-4 py-4 px-4"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#collapseBlackPepper"
+                    >
+                      <i class="bi bi-diagram-3-fill text-warning me-3 fs-6"></i
+                      >Tanzanian Black Pepper - "The Bioavailability Enhancer"
+                    </button>
+                  </h3>
+                  <div
+                    id="collapseBlackPepper"
+                    class="accordion-collapse collapse"
+                    data-bs-parent="#productsAccordion"
+                  >
+                    <div class="accordion-body p-4 bg-light">
+                      <div class="row g-3">
+                        <div class="col-md-6">
+                          <span class="fw-bold text-success"
+                            >Nutraceutical:</span
+                          >
+                          Piperine (2–9%), enhances absorption of nutrients &
+                          drugs.
+                        </div>
+                        <div class="col-md-6">
+                          <span class="fw-bold text-success">Scientific:</span>
+                          Acts as absorption catalyst for iron, selenium &
+                          vitamins; obesity management potential.
+                        </div>
+                        <div class="col-12">
+                          <span class="fw-bold text-success">Economic:</span>
+                          Global market $6.4B by 2033; EU focus on "Clean
+                          Label".
+                        </div>
+                        <div class="col-12">
+                          <span class="fw-bold text-success">Refs:</span>
+                          Srinivasan 2007, Gorgani 2016.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Modern Timeline -->
+          <div class="roadmap-section">
+            <h3 class="fw-bold mb-5 text-center display-6">
+              Roadmap & Future Prospects
+            </h3>
+            <div class="timeline-container">
+              <div class="timeline-item">
+                <div class="timeline-icon bg-gradient-success">
+                  <i class="bi bi-1-circle-fill"></i>
+                </div>
+                <div class="timeline-content">
+                  <h5 class="fw-bold">Phase 1</h5>
+                  <p>Elite Academic Knowledge + Blockchain 4.0</p>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-icon bg-gradient-primary">
+                  <i class="bi bi-2-circle-fill"></i>
+                </div>
+                <div class="timeline-content">
+                  <h5 class="fw-bold">Phase 2</h5>
+                  <p>IP Holder: Patent Smart Traceability Systems</p>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-icon bg-gradient-warning">
+                  <i class="bi bi-3-circle-fill"></i>
+                </div>
+                <div class="timeline-content">
+                  <h5 class="fw-bold">Phase 3</h5>
+                  <p>European Funding & Italian Market Leadership</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Gallery Section -->
+      <section id="Gallery" class="portfolio section mb-5">
+        <!-- Section Title -->
+        <div class="container section-title" data-aos="fade-up">
+          <h2 data-i18n="gallery.sectionTitle">Gallery</h2>
+          <p data-i18n="gallery.sectionSubtitle">
+            Explore our fields, harvests, and production processes—showcasing
+            the premium quality of our agricultural products and our commitment
+            to excellence.
+          </p>
+        </div>
+        <!-- End Section Title -->
+
+        <!--  plan  -->
+        <div class="container">
+          <div
+            class="isotope-layout"
+            data-default-filter="*"
+            data-layout="masonry"
+            data-sort="original-order"
+          >
+            <!-- Portfolio Filters -->
+            <ul
+              class="portfolio-filters isotope-filters mb-5"
+              data-aos="fade-up"
+              data-aos-delay="100"
+            >
+              <li data-filter="*" data-i18n="gallery.filters.all">All</li>
+              <li
+                data-filter=".filter-cashew"
+                class="filter-active"
+                data-i18n="gallery.filters.cashew"
+              >
+                Cashew
+              </li>
+              <li
+                data-filter=".filter-cloves"
+                data-i18n="gallery.filters.cloves"
+              >
+                Cloves
+              </li>
+              <li data-filter=".filter-beans" data-i18n="gallery.filters.beans">
+                Beans
+              </li>
+              <li
+                data-filter=".filter-cardamom"
+                data-i18n="gallery.filters.cardamom"
+              >
+                Cardamom
+              </li>
+              <li
+                data-filter=".filter-blackpepper"
+                data-i18n="gallery.filters.blackpepper"
+              >
+                Black Pepper
+              </li>
+              <li
+                data-filter=".filter-coffee"
+                data-i18n="gallery.filters.coffee"
+              >
+                Coffee
+              </li>
+            </ul>
+            <!-- End Portfolio Filters -->
+
+            <div class="portfolio-description" id="desc-cashew">
+              <p>
+                <strong
+                  ><span data-i18n="gallery.products.cashew.strong.product"
+                    >Product:</span
+                  ></strong
+                >
+                <span data-i18n="gallery.products.cashew.product"
+                  >Raw Cashew Nuts (Premium Export)</span
+                ><br />
+
+                <!-- <strong
+                  ><span data-i18n="gallery.products.cashew.strong.category"
+                    >Category:</span
+                  ></strong
+                >
+                <span data-i18n="gallery.products.cashew.category"
+                  >Nuts & Dried Fruits (Premium Export)</span
+                ><br /> -->
+
+                <strong
+                  ><span data-i18n="gallery.products.cashew.strong.tagline"
+                    >Tagline:</span
+                  ></strong
+                >
+                <span data-i18n="gallery.products.cashew.tagline"
+                  >Crunchy and naturally sweet. Selected for size and
+                  outturn.</span
+                ><br /><br />
+
+                <strong
+                  ><span data-i18n="gallery.products.cashew.strong.description"
+                    >Description (Front):</span
+                  ></strong
+                >
+
+                <span data-i18n="gallery.products.cashew.description">
+                  We export raw and processed cashew nuts of the highest
+                  quality. Our supply chain guarantees healthy nuts with high
+                  outturn rates, perfect for roasting and the Italian and
+                  European confectionery industry. </span
+                ><br /><br />
+
+                <strong
+                  ><span
+                    data-i18n="gallery.products.cashew.strong.technicalSpecs"
+                    >Technical Specs (Back/Details):</span
+                  ></strong
+                >
+                <br />
+                <span data-i18n="gallery.products.cashew.technicalSpecs">
+                  - Grades (Kernels): WW180, WW210, WW240, WW320 (Whole
+                  White)<br />
+                  - Moisture: Max 8-10%<br />
+                  - Defects: < 5%<br />
+                </span>
+              </p>
+            </div>
+
+            <!-- وصف Cloves -->
+            <div class="portfolio-description" id="desc-cloves">
+              <p>
+                <strong
+                  ><span data-i18n="gallery.products.cashew.strong.product"
+                    >Product:</span
+                  ></strong
+                >
+                <span data-i18n="gallery.products.cloves.product">Cloves</span
+                ><br />
+
+                <strong
+                  ><span data-i18n="gallery.products.cashew.strong.tagline"
+                    >Tagline:</span
+                  ></strong
+                >
+                <span data-i18n="gallery.products.cloves.tagline">
+                  The aromatic essence of Tanzania. Hand-picked. </span
+                ><br />
+              </p>
+
+              <p>
+                <strong
+                  ><span data-i18n="gallery.products.cashew.strong.description"
+                    >Description (Front):</span
+                  ></strong
+                >
+                <span data-i18n="gallery.products.cloves.description">
+                  Our cloves are famous for their high essential oil content and
+                  rich reddish-brown color. Carefully cleaned and sorted to
+                  ensure they are free from impurities.
+                </span>
+              </p>
+
+              <p>
+                <strong
+                  ><span
+                    data-i18n="gallery.products.cashew.strong.technicalSpecs"
+                    >Technical Specs (Back/Details):</span
+                  ></strong
+                ><br />
+
+                <!-- كل المحتوى هيظهر من ملفات اللغات -->
+                <span data-i18n="gallery.products.cloves.technicalSpecs">
+                  - Quality: CG1 (Hand-picked)<br />
+                  - Moisture: &lt; 12%<br />
+                  - Stems: Max 2-3%<br />
+                  - Essential Oils: High Content<br />
+                </span>
+              </p>
+            </div>
+            <!-- وصف Beans مدموج -->
+            <div class="portfolio-description" id="desc-beans">
+              <p>
+                <strong
+                  ><span data-i18n="gallery.products.cashew.strong.product"
+                    >Product:</span
+                  ></strong
+                >
+                <span data-i18n="gallery.products.beans.product"
+                  >Mixed Beans</span
+                ><br />
+
+                <!-- <strong
+                  ><span data-i18n="gallery.products.cashew.strong.category"
+                    >Category:</span
+                  ></strong
+                >
+                <span data-i18n="gallery.products.beans.category">Pulses</span
+                ><br /> -->
+
+                <strong
+                  ><span data-i18n="gallery.products.cashew.strong.tagline"
+                    >Tagline:</span
+                  ></strong
+                >
+                <span data-i18n="gallery.products.beans.tagline">
+                  Plant-based proteins from the heart of Africa. Soya, White,
+                  Yellow, Red Kidney, Black, and Speckled/Pinto Beans. </span
+                ><br /><br />
+
+                <strong
+                  ><span data-i18n="gallery.products.cashew.strong.description"
+                    >Description (Front):</span
+                  ></strong
+                >
+                <span data-i18n="gallery.products.beans.description">
+                  A wide range of legumes cultivated on fertile soils. Includes
+                  small to medium White Beans (Navy/Cannellini), large Red
+                  Kidney Beans, oval/round Yellow Beans, small Black Beans, and
+                  speckled Pinto Beans. Essential, clean, and ready for
+                  packaging or processing. Main production: Great Lakes/Western
+                  (Kagera & Kigoma), Southern Highlands (Mbeya, Iringa),
+                  Northern regions (Arusha, Kilimanjaro, Manyara), and multiple
+                  other regions.</span
+                ><br /><br />
+
+                <strong
+                  ><span
+                    data-i18n="gallery.products.cashew.strong.technicalSpecs"
+                    >Technical Specs (Back/Details):</span
+                  ></strong
+                ><br />
+                <span data-i18n="gallery.products.beans.technicalSpecs">
+                  - Types: Red Kidney, Speckled/Pinto<br />
+                  - Size: Uniform to varied depending on type<br />
+                  - Moisture: Max 13-14%<br />
+                  - (Machine Cleaned)
+                </span>
+              </p>
+            </div>
+
+            <!-- وصف Cardamom -->
+            <div class="portfolio-description" id="desc-cardamom">
+              <p>
+                <strong
+                  ><span data-i18n="gallery.products.cashew.strong.product"
+                    >Product:</span
+                  ></strong
+                >
+                <span data-i18n="gallery.products.cardamom.product">
+                  Top-grade green cardamom pods, tightly closed and bright
+                  green, grown in rainforest shade. </span
+                ><br /><br />
+
+                <strong
+                  ><span data-i18n="gallery.products.cashew.strong.tagline"
+                    >Tagline:</span
+                  ></strong
+                >
+                <span data-i18n="gallery.products.cardamom.tagline">
+                  Offers a complex flavor combining sweetness and spice.
+                  Cardamom Husks: Outer husks separated from seeds, ideal for
+                  flavoring tea, Arabic coffee, ground spice blends, or
+                  essential oil extraction at economical cost.</span
+                ><br /><br />
+
+                <strong
+                  ><span
+                    data-i18n="gallery.products.cashew.strong.technicalSpecs"
+                    >Technical Specs (Back/Details):</span
+                  ></strong
+                ><br />
+                <span data-i18n="gallery.products.cardamom.technicalSpecs">
+                  - Grade: Bold<br />
+                  - Color: Deep Green after processing<br />
+                  - Seeds: Black and aromatic<br />
+                  - Purity: Cleaned from dust<br />
+                  - Aroma: Light and balsamic
+                </span>
+              </p>
+            </div>
+            <!-- وصف Black Pepper -->
+            <div class="portfolio-description" id="desc-blackpepper">
+              <p>
+                <strong
+                  ><span data-i18n="gallery.products.cashew.strong.product"
+                    >Product:</span
+                  ></strong
+                >
+                <span data-i18n="gallery.products.blackpepper.product">
+                  Whole Black Pepper </span
+                ><br /><br />
+
+                <strong
+                  ><span data-i18n="gallery.products.cashew.strong.tagline"
+                    >Tagline:</span
+                  ></strong
+                >
+                <span data-i18n="gallery.products.blackpepper.tagline">
+                  Premium black pepper from Tanga and Morogoro, dried to
+                  preserve piperine. Whole black pepper includes 2 main types:
+                  black pepper FAQ and black pepper MC: 1. Black pepper FAQ is
+                  the type of pepper that is usually only processed simply:
+                  separating branches, impurities (soil, stones), not separating
+                  large and small seeds, not washed.</span
+                ><br /><br />
+
+                <strong
+                  ><span
+                    data-i18n="gallery.products.cashew.strong.technicalSpecs"
+                    >Technical Specs (Back/Details):</span
+                  ></strong
+                ><br />
+                <span data-i18n="gallery.products.blackpepper.technicalSpecs">
+                  - Density: 500GL (grams/liter)<br />
+                  - Appearance: Whole, clean grains<br />
+                  - Color: Natural color<br />
+                  - Humidity: 13,5% max
+                </span>
+              </p>
+            </div>
+
+            <!-- Coffee -->
+            <div class="portfolio-description" id="desc-coffee">
+              <div class="lang-en">
+                <p>
+                  <strong
+                    ><span data-i18n="gallery.products.cashew.strong.product"
+                      >Product:</span
+                    ></strong
+                  >
+                  <span data-i18n="gallery.products.coffee.product"
+                    >Tanzanian Coffee</span
+                  >
+                  <br /><br />
+                  <strong
+                    ><span
+                      data-i18n="gallery.products.cashew.strong.description"
+                      >Description (Front):</span
+                    ></strong
+                  >
+                  <span data-i18n="gallery.products.coffee.description">
+                    Introducing pristine, fully Washed Arabica green beans
+                    sourced from high-altitude estates in the Mbeya and
+                    Kilimanjaro regions. This Specialty Grade coffee presents a
+                    complex flavour profile featuring bright citrus notes and a
+                    full, well-rounded body, ensuring perfect synergy for
+                    creating premium espresso blends with rich crema and
+                    exceptional consistency.
+                  </span>
+                  <br /><br />
+                  <strong
+                    ><span
+                      data-i18n="gallery.products.cashew.strong.technicalSpecs"
+                      >Technical Specs (Back/Details):</span
+                    ></strong
+                  ><br />
+                  <span data-i18n="gallery.products.coffee.technicalSpecs">
+                    - Primary Variety: High-Quality Arabica (Washed). Robusta
+                    (Clean) available for density and body enhancement.<br />
+                    - Screen Sizes: AA (18+), AB (16/17), and Peaberry (PB).<br />
+                    - Quality Rating: Specialty Grade (Cupping Score 80+).<br />
+                    - Moisture Content: Guaranteed between 11.0% and 12.5% for
+                    optimal roasting stability.<br />
+                    - Purity & Defects: Precise processing to minimize defects
+                    according to international SCA standards.<br />
+                    - Packaging: New 60kg Jute bags, with option for GraintPro
+                    lining for maximum flavour protection.<br />
+                    - Key Certifications: Phytosanitary Certificate, Quality
+                    Certificate, Certificate of Origin.
+                  </span>
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="row gy-4 isotope-container"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              <!-- أول 3 صور للـ All فقط (بدون filter-all) -->
+              <div class="col-lg-4 col-md-6 isotope-item first-three">
+                <a
+                  href="images/cashew/cashew-middle/cashew-6copy.webp"
+                  class="glightbox-images"
+                  width="576"
+                  height="576"
+                  data-gallery="cashew"
+                >
+                  <img
+                    src="images/cashew/cashew-middle/cashew-6copy.webp"
+                    class="img-fluid"
+                    width="576"
+                    height="576"
+                    alt="Cashew"
+                  />
+                </a>
+              </div>
+
+              <div class="col-lg-4 col-md-6 isotope-item first-three">
+                <a
+                  href="images/cloves/cloves-big/cloves-1copy-3.webp"
+                  class="glightbox-images"
+                  data-gallery="cloves"
+                >
+                  <img
+                    src="images/cloves/cloves-big/cloves-1copy-3.webp"
+                    class="img-fluid"
+                    alt="Cloves"
+                  />
+                </a>
+              </div>
+
+              <div class="col-lg-4 col-md-6 isotope-item first-three">
+                <a
+                  href="images/new-photos/cardmom/8.webp"
+                  class="glightbox-images"
+                  data-gallery="cardmom"
+                >
+                  <img
+                    src="images/new-photos/cardmom/8.webp"
+                    class="img-fluid"
+                    alt="cardmom"
+                  />
+                </a>
+              </div>
+
+              <div class="col-lg-4 col-md-6 isotope-item first-three">
+                <a
+                  href="images/new-photos/Cafe/cafe-3.webp"
+                  class="glightbox-images"
+                  data-gallery="coffee"
+                >
+                  <img
+                    src="images/new-photos/Cafe/cafe-3.webp"
+                    class="img-fluid"
+                    alt="coffee"
+                  />
+                </a>
+              </div>
+
+              <div class="col-lg-4 col-md-6 isotope-item first-three">
+                <a
+                  href="images/new-photos/black-pepper/blackpepper-2.webp"
+                  class="glightbox-images"
+                  data-gallery="blackpepper"
+                >
+                  <img
+                    src="images/new-photos/black-pepper/blackpepper-2.webp"
+                    class="img-fluid"
+                    alt="blackpepper"
+                    loading="lazy"
+                  />
+                </a>
+              </div>
+
+              <div class="col-lg-4 col-md-6 isotope-item first-three">
+                <a
+                  href="images/beans/beans-big/beens-2copy-3.webp"
+                  class="glightbox-images"
+                  data-gallery="beans"
+                >
+                  <img
+                    src="images/beans/beans-big/beens-2copy-3.webp"
+                    class="img-fluid"
+                    alt="beans"
+                  />
+                </a>
+              </div>
+
+              <!-- Cashew -->
+              <div class="portfolio-group filter-cashew">
+                <div class="row g-3">
+                  <!-- أول صورتين ظاهرين -->
+                  <div class="col-md-6">
+                    <a
+                      href="images/cashew/cashew-middle/cashew-6copy.webp"
+                      class="glightbox-images"
+                      data-gallery="cashew"
+                      width="400"
+                      height="300"
+                    >
+                      <img
+                        src="images/cashew/cashew-middle/cashew-6copy.webp"
+                        class="img-fluid"
+                        alt="Cashew"
+                        width="400"
+                        height="300"
+                      />
+                    </a>
+                  </div>
+                  <div class="col-md-6">
+                    <a
+                      href="images/cashew/cashew-middle/cashew-7copy.webp"
+                      class="glightbox-images"
+                      data-gallery="cashew"
+                      width="400"
+                      height="300"
+                    >
+                      <img
+                        src="images/cashew/cashew-middle/cashew-7copy.webp"
+                        class="img-fluid"
+                        alt="Cashew"
+                        width="400"
+                        height="300"
+                      />
+                    </a>
+                  </div>
+                </div>
+
+                <!-- باقي الصور مخفية داخل الألبوم -->
+                <a
+                  href="images/cashew/cashew-middle/cashew-1copy-2.webp"
+                  class="glightbox-images"
+                  data-gallery="cashew"
+                  aria-label="Cashew Image 3"
+                ></a>
+                <a
+                  href="images/new-photos/cashew/frame_005.webp"
+                  class="glightbox-images"
+                  data-gallery="cashew"
+                  aria-label="Cashew Image 4"
+                ></a>
+                <a
+                  href="images/new-photos/cashew/frame_007.webp"
+                  class="glightbox-images"
+                  data-gallery="cashew"
+                  aria-label="Cashew Image 4"
+                ></a>
+                <a
+                  href="images/new-photos/cashew/frame_012.webp"
+                  class="glightbox-images"
+                  data-gallery="cashew"
+                  aria-label="Cashew Image 4"
+                ></a>
+                <a
+                  href="images/new-photos/cashew/frame_014.webp"
+                  class="glightbox-images"
+                  data-gallery="cashew"
+                  aria-label="Cashew Image 4"
+                ></a>
+                <a
+                  href="images/cashew/cashew-middle/cashew-3copy.webp"
+                  class="glightbox-images"
+                  data-gallery="cashew"
+                  aria-label="Cashew Image 5"
+                ></a>
+                <a
+                  href="images/cashew/cashew-middle/cashew-5copy.webp"
+                  class="glightbox-images"
+                  data-gallery="cashew"
+                  aria-label="Cashew Image 6"
+                ></a>
+              </div>
+
+              <!-- Cloves -->
+              <div class="portfolio-group filter-cloves" style="display: none">
+                <div class="row g-3">
+                  <!-- أول صورتين ظاهرين -->
+                  <div class="col-md-6">
+                    <a
+                      href="images/cloves/cloves-middle/cloves-1copy-2.webp"
+                      class="glightbox-images"
+                      data-gallery="cloves"
+                    >
+                      <img
+                        src="images/cloves/cloves-middle/cloves-1copy-2.webp"
+                        class="img-fluid"
+                        alt="Cloves"
+                      />
+                    </a>
+                  </div>
+                  <div class="col-md-6">
+                    <a
+                      href="images/cloves/cloves-middle/cloves-4copy.webp"
+                      class="glightbox-images"
+                      data-gallery="cloves"
+                    >
+                      <img
+                        src="images/cloves/cloves-middle/cloves-4copy.webp"
+                        class="img-fluid"
+                        alt="Cloves"
+                      />
+                    </a>
+                  </div>
+                </div>
+
+                <!-- باقي الصور مخفية داخل الألبوم -->
+                <!-- <a
+                  href="images/cloves/cloves-middle/cloves-2copy.webp"
+                  class="glightbox-images"
+                  data-gallery="cloves"
+                ></a> -->
+                <a
+                  href="images/cloves/cloves-middle/cloves-3copy-2.webp"
+                  class="glightbox-images"
+                  data-gallery="cloves"
+                ></a>
+                <a
+                  href="images/cloves/cloves-middle/cloves-5copy.webp"
+                  class="glightbox-images"
+                  data-gallery="cloves"
+                ></a>
+                <a
+                  href="images/new-photos/cloves/cloves-1.webp"
+                  class="glightbox-images"
+                  data-gallery="cloves"
+                ></a>
+                <a
+                  href="images/new-photos/cloves/cloves-2.webp"
+                  class="glightbox-images"
+                  data-gallery="cloves"
+                ></a>
+              </div>
+
+              <!-- Beans -->
+              <div class="portfolio-group filter-beans" style="display: none">
+                <div class="row g-3">
+                  <!-- أول صورتين ظاهرين -->
+                  <div class="col-md-6">
+                    <a
+                      href="images/new-photos/beans/beans-1.webp"
+                      class="glightbox-images"
+                      data-gallery="beans"
+                    >
+                      <img
+                        src="images/new-photos/beans/beans-1.webp"
+                        class="img-fluid"
+                        alt="Beans"
+                      />
+                    </a>
+                  </div>
+                  <div class="col-md-6">
+                    <a
+                      href="images/beans/beans-middle/beens-2copy-2.webp"
+                      class="glightbox-images"
+                      data-gallery="beans"
+                    >
+                      <img
+                        src="images/beans/beans-middle/beens-2copy-2.webp"
+                        class="img-fluid"
+                        alt="Beans"
+                      />
+                    </a>
+                  </div>
+                </div>
+
+                <!-- باقي الصور مخفية داخل الألبوم -->
+                <a
+                  href="images/beans/beans-middle/beens-1copy-2.webp"
+                  class="glightbox-images"
+                  data-gallery="beans"
+                ></a>
+                <a
+                  href="images/new-photos/beans/beans-2.webp"
+                  class="glightbox-images"
+                  data-gallery="beans"
+                ></a>
+              </div>
+
+              <!-- Cardamom -->
+              <div class="portfolio-group filter-cardamom">
+                <div class="row g-3">
+                  <!-- أول صورتين ظاهرين -->
+                  <div class="col-md-6">
+                    <a
+                      href="images/cardmom/carmom-middle/cardmom-1copy-2.webp"
+                      class="glightbox-images"
+                      data-gallery="cardamom"
+                    >
+                      <img
+                        src="images/cardmom/carmom-middle/cardmom-1copy-2.webp"
+                        class="img-fluid"
+                        alt="Cardamom"
+                      />
+                    </a>
+                  </div>
+                  <div class="col-md-6">
+                    <a
+                      href="images/new-photos/cardmom/8.webp"
+                      class="glightbox-images"
+                      data-gallery="cardamom"
+                    >
+                      <img
+                        src="images/new-photos/cardmom/8.webp"
+                        class="img-fluid"
+                        alt="Cardamom"
+                      />
+                    </a>
+                  </div>
+                </div>
+                <!-- باقي الصور مخفية داخل الألبوم -->
+                <a
+                  href="images/cardmom/carmom-middle/cardmom-2copy-2.webp"
+                  class="glightbox-images"
+                  data-gallery="cardamom"
+                ></a>
+                <a
+                  href="images/cardmom/carmom-middle/cardmom-3copy.webp"
+                  class="glightbox-images"
+                  data-gallery="cardamom"
+                ></a>
+
+                <a
+                  href="images/cardmom/carmom-middle/cardmom-4copy.webp"
+                  class="glightbox-images"
+                  data-gallery="cardamom"
+                ></a>
+              </div>
+
+              <!-- Black Pepper -->
+              <div class="portfolio-group filter-blackpepper">
+                <div class="row g-3">
+                  <!-- أول صورتين ظاهرين -->
+                  <div class="col-md-6">
+                    <a
+                      href="images/new-photos/black-pepper/blackpepper-2.webp"
+                      class="glightbox-images"
+                      data-gallery="blackpepper"
+                    >
+                      <img
+                        src="images/new-photos/black-pepper/blackpepper-2.webp"
+                        class="img-fluid"
+                        alt="Black Pepper"
+                      />
+                    </a>
+                  </div>
+                  <div class="col-md-6">
+                    <a
+                      href="images/new-photos/black-pepper/blackpepper-3.webp"
+                      class="glightbox-images"
+                      data-gallery="blackpepper"
+                    >
+                      <img
+                        src="images/new-photos/black-pepper/blackpepper-3.webp"
+                        class="img-fluid"
+                        alt="blackpepper"
+                        loading="lazy"
+                      />
+                    </a>
+                  </div>
+                </div>
+
+                <!-- باقي الصور مخفية داخل الألبوم -->
+                <a
+                  href="images/blackpepper/blackpepper-middle/blackpepper-4copy.webp"
+                  class="glightbox-images"
+                  data-gallery="blackpepper"
+                ></a>
+                <a
+                  href="images/new-photos/black-pepper/blackpepper-1.webp"
+                  class="glightbox-images"
+                  data-gallery="blackpepper"
+                ></a>
+                <a
+                  href="images/blackpepper/blackpepper-middle/blackpepper-3copy-2.webp"
+                  class="glightbox-images"
+                  data-gallery="blackpepper"
+                ></a>
+                <a
+                  href="images/blackpepper/blackpepper-middle/blackpepper-6copy.webp"
+                  class="glightbox-images"
+                  data-gallery="blackpepper"
+                ></a>
+              </div>
+
+              <!-- Coffee -->
+              <div class="portfolio-group filter-coffee">
+                <div class="row g-3">
+                  <!-- أول صورتين ظاهرين -->
+                  <div class="col-md-6">
+                    <a
+                      href="images/new-photos/Cafe/cafe-5.webp"
+                      class="glightbox-images"
+                      data-gallery="coffee"
+                    >
+                      <img
+                        src="images/new-photos/Cafe/cafe-5.webp"
+                        class="img-fluid"
+                        alt="Coffee"
+                        data-i18n-alt="gallery.products.coffee.alt1"
+                      />
+                    </a>
+                  </div>
+                  <div class="col-md-6">
+                    <a
+                      href="images/new-photos/Cafe/cafe-3.webp"
+                      class="glightbox-images"
+                      data-gallery="coffee"
+                    >
+                      <img
+                        src="images/new-photos/Cafe/cafe-3.webp"
+                        class="img-fluid"
+                        alt="Coffee"
+                        data-i18n-alt="gallery.products.coffee.alt2"
+                      />
+                    </a>
+                  </div>
+                </div>
+
+                <!-- باقي الصور مخفية داخل الألبوم -->
+                <a
+                  href="images/coffee/coffee-middle/coffee-3copy.webp"
+                  class="glightbox-images"
+                  data-gallery="coffee"
+                  aria-label="Coffee Image 3"
+                  data-i18n-aria="gallery.products.coffee.image3"
+                ></a>
+                <a
+                  href="images/new-photos/Cafe/cafe-2.webp"
+                  class="glightbox-images"
+                  data-gallery="coffee"
+                  aria-label="Coffee Image 3"
+                  data-i18n-aria="gallery.products.coffee.image3"
+                ></a>
+                <a
+                  href="images/new-photos/Cafe/cafe-4.webp"
+                  class="glightbox-images"
+                  data-gallery="coffee"
+                  aria-label="Coffee Image 3"
+                  data-i18n-aria="gallery.products.coffee.image3"
+                ></a>
+                <a
+                  href="images/new-photos/Cafe/cafe-1.webp"
+                  class="glightbox-images"
+                  data-gallery="coffee"
+                  aria-label="Coffee Image 3"
+                  data-i18n-aria="gallery.products.coffee.image3"
+                ></a>
+                <a
+                  href="images/coffee/coffee-middle/coffee-4copy.webp"
+                  class="glightbox-images"
+                  data-gallery="coffee"
+                  aria-label="Coffee Image 4"
+                  data-i18n-aria="gallery.products.coffee.image4"
+                ></a>
+                <a
+                  href="images/coffee/coffee-middle/coffee-5copy.webp"
+                  class="glightbox-images"
+                  data-gallery="coffee"
+                  aria-label="Coffee Image 5"
+                  data-i18n-aria="gallery.products.coffee.image5"
+                ></a>
+                <a
+                  href="images/coffee/coffee-middle/coffee-1copy-2.webp"
+                  class="glightbox-images"
+                  data-gallery="coffee"
+                  aria-label="Coffee Image 6"
+                  data-i18n-aria="gallery.products.coffee.image6"
+                ></a>
+                <a
+                  href="images/coffee/coffee-middle/coffee-2copy-2.webp"
+                  class="glightbox-images"
+                  data-gallery="coffee"
+                  aria-label="Coffee Image 7"
+                  data-i18n-aria="gallery.products.coffee.image7"
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- End Gallery Container -->
+
+      <!-- Section Contant Us -->
+      <section id="contact" class="contact section">
+        <div class="container">
+          <!-- Section Title -->
+          <div class="section-title text-center mb-5" data-aos="fade-up">
+            <h2 data-i18n="contact.sectionTitle">Contact Us</h2>
+            <p data-i18n="contact.sectionSubtitle">
+              Have a question or need assistance? We're here to help you
+              anytime.
+            </p>
+          </div>
+
+          <div class="row">
+            <!-- LEFT COLUMN: Branches -->
+            <div class="col-lg-6">
+              <div class="row">
+                <!-- Italy Branch -->
+                <div class="row">
+                  <!-- Italy Branch -->
+                  <div class="col-md-6 mb-4" id="italy-branch">
+                    <div class="info">
+                      <h3 class="branch-title mb-4">
+                        <span data-i18n="contact.branches.italy.title"
+                          >Italy Branch</span
+                        ><img
+                          src="https://flagcdn.com/it.svg"
+                          width="24"
+                          height="24"
+                          alt="Italy Flag"
+                        />
+                      </h3>
+
+                      <div class="info-item d-flex mb-3">
+                        <i class="bi bi-envelope flex-shrink-0"></i>
+                        <div>
+                          <h4>
+                            <span data-i18n="contact.branches.italy.emailTitle"
+                              >Email:</span
+                            >
+                          </h4>
+                          <p data-i18n="contact.branches.italy.email">
+                            info@markatz.com
+                          </p>
+                        </div>
+                      </div>
+                      <div class="info-item d-flex">
+                        <i class="bi bi-phone flex-shrink-0"></i>
+                        <div>
+                          <h4>
+                            <span data-i18n="contact.branches.italy.phoneTitle"
+                              >Call:</span
+                            >
+                          </h4>
+                          <p data-i18n="contact.branches.italy.phone">
+                            +39 389 787 9480
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Tanzania Branch -->
+                  <div class="col-md-6 mb-4" id="tanzania-branch">
+                    <div class="info">
+                      <h3 class="branch-title mb-4">
+                        <span data-i18n="contact.branches.tanzania.title"
+                          >Tanzania Branch</span
+                        ><img
+                          src="https://flagcdn.com/tz.svg"
+                          width="24"
+                          height="24"
+                          alt="Tanzania Flag"
+                        />
+                      </h3>
+                      <div class="info-item d-flex mb-3">
+                        <i class="bi bi-geo-alt flex-shrink-0"></i>
+                        <div>
+                          <h4>
+                            <span
+                              data-i18n="contact.branches.tanzania.locationTitle"
+                              >Location:</span
+                            >
+                          </h4>
+                          <p data-i18n="contact.branches.tanzania.location">
+                            P.O. Box 6191, Tanga, Tanzania
+                          </p>
+                        </div>
+                      </div>
+                      <div class="info-item d-flex mb-3">
+                        <i class="bi bi-envelope flex-shrink-0"></i>
+                        <div>
+                          <h4>
+                            <span
+                              data-i18n="contact.branches.tanzania.emailTitle"
+                              >Email:</span
+                            >
+                          </h4>
+                          <p data-i18n="contact.branches.tanzania.email">
+                            info@markatz.com
+                          </p>
+                        </div>
+                      </div>
+                      <div class="info-item d-flex">
+                        <i class="bi bi-phone flex-shrink-0"></i>
+                        <div>
+                          <h4>
+                            <span
+                              data-i18n="contact.branches.tanzania.phoneTitle"
+                              >Call:</span
+                            >
+                          </h4>
+                          <p data-i18n="contact.branches.tanzania.phone">
+                            +25 568 677 8002
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Google Map تحت العمود الأيسر -->
+              <div class="mb-5">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3974.1616663861496!2d39.086343074981684!3d-5.07753199489926!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNcKwMDQnMzkuMSJTIDM5wrAwNScyMC4xIkU!5e0!3m2!1sen!2seg!4v1764175144176!5m2!1sen!2seg"
+                  width="100%"
+                  height="400"
+                  style="border: 0"
+                  allowfullscreen=""
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                  title="Google Maps showing our location"
+                ></iframe>
+              </div>
+            </div>
+
+            <!-- RIGHT COLUMN: Contact Form + QR -->
+            <div class="col-lg-6">
+              <form
+                action="forms/contact.php"
+                method="post"
+                role="form"
+                class="php-email-form"
+              >
+                <div class="row">
+                  <div class="col-md-6 form-group">
+                    <input
+                      type="text"
+                      name="name"
+                      class="form-control"
+                      placeholder=" Your Name"
+                      data-i18n="[placeholder]contact.form.name"
+                      required
+                    />
+                  </div>
+                  <div class="col-md-6 form-group mt-3 mt-md-0">
+                    <input
+                      type="email"
+                      class="form-control"
+                      name="email"
+                      placeholder=" Your Email"
+                      data-i18n="[placeholder]contact.form.email"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div class="form-group mt-3">
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="subject"
+                    placeholder="Subject"
+                    data-i18n="[placeholder]contact.form.subject"
+                    required
+                  />
+                </div>
+
+                <div class="form-group mt-3">
+                  <textarea
+                    class="form-control"
+                    name="message"
+                    placeholder="Message"
+                    data-i18n="[placeholder]contact.form.message"
+                    required
+                  ></textarea>
+                </div>
+
+                <div class="my-3">
+                  <div class="loading" data-i18n="contact.form.loading">
+                    Loading
+                  </div>
+                  <div
+                    class="error-message"
+                    data-i18n="contact.form.errorMessage"
+                  ></div>
+                  <div
+                    class="sent-message"
+                    data-i18n="contact.form.sentMessage"
+                  >
+                    Your message has been sent. Thank you!
+                  </div>
+                </div>
+
+                <div class="text-center">
+                  <button type="submit" data-i18n="contact.form.button">
+                    Send Message
+                  </button>
+                </div>
+              </form>
+
+              <!-- QR Code under the form -->
+              <div class="container my-1" data-aos="fade-up">
+                <div class="row justify-content-center">
+                  <div class="col-md-6 col-lg-8 text-center">
+                    <div class="p-3">
+                      <!-- إزالة كلاس card -->
+                      <img
+                        src="images/about/new_QRcodecopy.webp"
+                        alt="QR Code"
+                        class="img-fluid mx-auto"
+                        style="max-width: 200px"
+                        width="200"
+                        height="200"
+                      />
+
+                      <p class="mt-3 text-muted" data-i18n="contact.qr.text">
+                        Scan the QR code to reach us.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- end right column -->
+          </div>
+          <!-- end row -->
+        </div>
+        <!-- end container -->
+      </section>
+      <!-- /Section Contant Us -->
+
+      <!-- Clients Section -->
+      <section id="Certifications" class="clients section mb-5">
+        <div class="container section-title mb-3" data-aos="fade-up">
+          <h2 data-i18n="certifications.title">Certifications</h2>
+          <p data-i18n="certifications.description">
+            We uphold global quality benchmarks, evidenced by the 10+
+            international certifications our company has successfully secured.
+          </p>
+        </div>
+
+        <div class="container mb-5">
+          <div class="row g-0 clients-wrap justify-content-center">
+            <div class="col-xl-3 col-md-4 col-6 client-logo">
+              <img
+                src="images/LOGOS/logo-4.webp"
+                class="img-fluid"
+                width="200"
+                height="80"
+                alt="logo-1"
+              />
+            </div>
+            <div class="col-xl-3 col-md-4 col-6 client-logo">
+              <img
+                src="images/LOGOS/logo-1.webp"
+                class="img-fluid"
+                width="200"
+                height="80"
+                alt="logo-2"
+              />
+            </div>
+            <div class="col-xl-3 col-md-4 col-6 client-logo">
+              <img
+                src="images/LOGOS/logo-2.webp"
+                class="img-fluid"
+                width="200"
+                height="80"
+                alt="logo-3"
+              />
+            </div>
+            <div class="col-xl-3 col-md-4 col-6 client-logo">
+              <img
+                src="images/LOGOS/logo-3.webp"
+                class="img-fluid"
+                width="200"
+                height="80"
+                alt="logo-4"
+              />
+            </div>
+            <div class="col-xl-3 col-md-4 col-6 client-logo">
+              <img
+                src="images/LOGOS/logo-5.webp"
+                class="img-fluid"
+                width="200"
+                height="80"
+                alt="logo-5"
+              />
+            </div>
+            <div class="col-xl-3 col-md-4 col-6 client-logo">
+              <img
+                src="images/LOGOS/logo-6.webp"
+                class="img-fluid"
+                width="200"
+                height="80"
+                alt="logo-6"
+              />
+            </div>
+            <div class="col-xl-3 col-md-4 col-6 client-logo">
+              <img
+                src="images/LOGOS/logo-7.webp"
+                class="img-fluid"
+                width="200"
+                height="80"
+                alt="logo-7"
+              />
+            </div>
+            <div class="col-xl-3 col-md-4 col-6 client-logo">
+              <img
+                src="images/LOGOS/logo-8.webp"
+                class="img-fluid"
+                width="200"
+                height="80"
+                alt="logo-8"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="pdf-ticker-box">
+          <div class="pdf-track">
+            <!-- الـ JS هيملأ هنا تلقائياً -->
+          </div>
+        </div>
+      </section>
+
+      <!-- /Clients Section -->
+    </main>
+
+    <a href="#Gallery" class="ticker-link">
+      <div class="ticker-container">
+        <div class="ticker-track">
+          <!-- النسخة الأولى -->
+          <img
+            src="images/cardmom/cardmom-small/cardmom-1copy.webp"
+            alt="track-photo"
+            loading="lazy"
+          />
+          <img
+            src="images/cardmom/cardmom-small/cardmom-2copy.webp"
+            alt="track-photo"
+            loading="lazy"
+          />
+          <img
+            src="images/new-photos/cardmom/8.webp"
+            alt="track-photo"
+            loading="lazy"
+          />
+          <img
+            src="images/cashew/cashew-small/cashew-1copy.webp"
+            alt="track-photo"
+            loading="lazy"
+          />
+          <img
+            src="images/new-photos/Cafe/cafe-2.webp"
+            alt="track-photo"
+            loading="lazy"
+          />
+          <img
+            src="images/new-photos/Cafe/cafe-5.webp"
+            alt="track-photo"
+            loading="lazy"
+          />
+          <img
+            src="images/new-photos/beans/beans-1.webp"
+            alt="track-photo"
+            loading="lazy"
+          />
+          <img
+            src="images/beans/beans-small/beens-2copy.webp"
+            alt="track-photo"
+            loading="lazy"
+          />
+          <img
+            src="images/new-photos/cashew/frame_007.webp"
+            alt="track-photo"
+            loading="lazy"
+          />
+
+          <img
+            src="images/cloves/cloves-small/cloves-1copy.webp"
+            alt="track-photo"
+            loading="lazy"
+          />
+          <img
+            src="images/cloves/cloves-small/cloves-3copy.webp"
+            alt="track-photo"
+            loading="lazy"
+          />
+          <img
+            src="images/blackpepper/blackpepper-small/blackpepper-3copy.webp"
+            alt="track-photo"
+            loading="lazy"
+          />
+          <img
+            src="images/new-photos/black-pepper/blackpepper-3.webp"
+            alt="track-photo"
+            loading="lazy"
+          />
+
+          <!-- النسخة الثانية (ضروري جداً) -->
+          <img
+            src="images/cardmom/cardmom-small/cardmom-1copy.webp"
+            alt="track-photo"
+            loading="lazy"
+          />
+          <img
+            src="images/cardmom/cardmom-small/cardmom-2copy.webp"
+            alt="track-photo"
+            loading="lazy"
+          />
+          <img
+            src="images/new-photos/cardmom/8.webp"
+            alt="track-photo"
+            loading="lazy"
+          />
+          <img
+            src="images/cashew/cashew-small/cashew-1copy.webp"
+            alt="track-photo"
+            loading="lazy"
+          />
+          <img
+            src="images/new-photos/Cafe/cafe-2.webp"
+            alt="track-photo"
+            loading="lazy"
+          />
+          <img
+            src="images/new-photos/Cafe/cafe-5.webp"
+            alt="track-photo"
+            loading="lazy"
+          />
+          <img
+            src="images/new-photos/beans/beans-1.webp"
+            alt="track-photo"
+            loading="lazy"
+          />
+          <img
+            src="images/beans/beans-small/beens-2copy.webp"
+            alt="track-photo"
+            loading="lazy"
+          />
+          <img
+            src="images/new-photos/cashew/frame_007.webp"
+            alt="track-photo"
+            loading="lazy"
+          />
+
+          <img
+            src="images/cloves/cloves-small/cloves-1copy.webp"
+            alt="track-photo"
+            loading="lazy"
+          />
+          <img
+            src="images/cloves/cloves-small/cloves-3copy.webp"
+            alt="track-photo"
+            loading="lazy"
+          />
+          <img
+            src="images/blackpepper/blackpepper-small/blackpepper-3copy.webp"
+            alt="track-photo"
+            loading="lazy"
+          />
+          <img
+            src="images/new-photos/black-pepper/blackpepper-3.webp"
+            alt="track-photo"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </a>
+
+    <footer id="footer" class="footer dark-background">
+      <div class="container footer-top">
+        <div class="row gy-4">
+          <div class="col-lg-4 col-md-6 footer-about">
+            <a href="index.html" class="logo d-flex align-items-center">
+              <img
+                src="images/about/nav_logo.webp"
+                alt="Marka Trading Icon"
+                class="logo-icon black_icon"
+              />
+            </a>
+            <div class="footer-contact pt-3">
+              <p data-i18n="footer.contact.address1">
+                P.O. Box 6191, Tanga, Tanzania
+              </p>
+              <p class="mt-3">
+                <strong data-i18n="footer.contact.phone">Phone:</strong>
+                <span data-i18n="footer.contact.phoneNumber">
+                  +39 389 787 9480</span
+                >
+              </p>
+              <p>
+                <strong data-i18n="footer.contact.email">Email:</strong>
+                <span data-i18n="footer.contact.emailAddress"
+                  >info@markatz.com</span
+                >
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-2 col-md-3 footer-links">
+            <h4 data-i18n="footer.usefulLinks.title">Useful Links</h4>
+            <ul>
+              <li>
+                <a href="#" data-i18n="footer.usefulLinks.home">Home</a>
+              </li>
+              <li>
+                <a href="#about" data-i18n="footer.usefulLinks.about"
+                  >About us</a
+                >
+              </li>
+              <li>
+                <a href="#services" data-i18n="footer.usefulLinks.services"
+                  >Services</a
+                >
+              </li>
+              <li>
+                <a href="#Gallery" data-i18n="footer.usefulLinks.terms"
+                  >Gallery</a
+                >
+              </li>
+              <li>
+                <a href="#contact" data-i18n="footer.usefulLinks.privacy"
+                  >Contact Us</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-lg-2 col-md-3 footer-links">
+            <h4 data-i18n="footer.ourServices.title">Our Services</h4>
+            <ul>
+              <li>
+                <span data-i18n="footer.ourServices.agriculture"
+                  >Agricultural Consulting</span
+                >
+              </li>
+              <li>
+                <span data-i18n="footer.ourServices.crop">Crop Production</span>
+              </li>
+              <li>
+                <span data-i18n="footer.ourServices.management"
+                  >Farm Management</span
+                >
+              </li>
+              <li>
+                <span data-i18n="footer.ourServices.fertilizer"
+                  >Organic Fertilizer Supply</span
+                >
+              </li>
+              <li>
+                <span data-i18n="footer.ourServices.market"
+                  >Market Analysis & Sales</span
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-lg-4 col-md-12 footer-newsletter text-center">
+            <div class="my-3">
+              <img
+                src="images/about/new_QRcodecopy.webp"
+                alt="QR Code"
+                class="img-fluid mx-auto"
+                style="max-width: 200px"
+                width="200"
+                height="200"
+              />
+
+              <p class="mt-3 text-light" data-i18n="footer.newsletter.qrText">
+                Scan the QR code to reach us.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container copyright text-center mt-4">
+        <p>
+          © <span id="current-year"></span>
+          <strong class="px-1 sitename">Marka Trading</strong>.
+          <span data-i18n="footer.copyright.allRights"
+            >All Rights Reserved</span
+          >
+        </p>
+        <p>
+          <span data-i18n="footer.copyright.contact">Contact us:</span>
+          <a href="mailto:info@markatz.com">Marka Trading</a>
+        </p>
+      </div>
+    </footer>
+
+    <!-- Scroll Top -->
+    <a
+      href="#"
+      id="scroll-top"
+      class="scroll-top d-flex align-items-center justify-content-center"
+      aria-label="Scroll to top"
+    >
+      <i class="bi bi-arrow-up-short" aria-hidden="true"></i>
+    </a>
+    <a
+      href="https://wa.me/255686778002"
+      target="_blank"
+      class="whatsapp-float"
+      aria-label="Chat with us on WhatsApp"
+    >
+      <i class="bi bi-whatsapp"></i>
+    </a>
+
+    <!-- Preloader -->
+    <!-- <div id="preloader"></div> -->
+
+    <!-- GLightbox JS -->
+    <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+
+    <!-- Isotope -->
+    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+
+    <!-- TEST -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+
+    <!-- Bootstrap Bundle (JS + Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- EmailJS -->
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
+    <!-- Main JS File -->
+    <script src="js/main.js"></script>
+  </body>
+</html>

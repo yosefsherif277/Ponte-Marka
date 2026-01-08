@@ -1,0 +1,3278 @@
+/* Fonts */
+:root {
+  --default-font: "Roboto", system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --heading-font: "Raleway", sans-serif;
+  --nav-font: "Nunito", sans-serif;
+}
+
+/* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
+:root {
+  --background-color: #ffffff; /* Background color for the entire website, including individual sections */
+  --default-color: #444444; /* Default color used for the majority of the text content across the entire website */
+  --heading-color: #111111; /* Color for headings, subheadings and title throughout the website */
+  --accent-color: #0f981b; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
+  --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
+  --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
+}
+
+/* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
+:root {
+  --nav-color: #444444; /* The default color of the main navmenu links */
+  --nav-hover-color: #0f981b; /* Applied to main navmenu links when they are hovered over or active */
+  --nav-mobile-background-color: #ffffff; /* Used as the background color for mobile navigation menu */
+  --nav-dropdown-background-color: #ffffff; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
+  --nav-dropdown-color: #444444; /* Used for navigation links of the dropdown items in the navigation menu. */
+  --nav-dropdown-hover-color: #0f981b; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
+}
+
+/* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
+
+.light-background {
+  --background-color: #f7f7f7;
+  --surface-color: #ffffff;
+}
+
+.dark-background {
+  --background-color: #060606;
+  --default-color: #ffffff;
+  --heading-color: #ffffff;
+  --surface-color: #252525;
+  --contrast-color: #ffffff;
+}
+
+/* Smooth scroll  9c1cad*/
+:root {
+  scroll-behavior: smooth;
+}
+
+/*--------------------------------------------------------------
+# General Styling & Shared Classes
+--------------------------------------------------------------*/
+body {
+  color: var(--default-color);
+  background-color: var(--background-color);
+  font-family: var(--default-font);
+}
+/*--------------------------------------------------------------
+# Header & Navigation RTL Support
+--------------------------------------------------------------*/
+
+/* الاتجاه الافتراضي */
+/* body {
+  direction: ltr;
+} */
+
+/* ENGLISH */
+
+html {
+  scroll-padding-top: 120px;
+}
+
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+a:hover {
+  color: color-mix(in srgb, var(--accent-color), transparent 25%);
+  text-decoration: none;
+}
+
+h2,
+h3,
+h4 {
+  color: var(--heading-color);
+  font-family: var(--heading-font);
+}
+
+/*--------------------------------------------------------------
+# Global Header
+--------------------------------------------------------------*/
+.header {
+  color: var(--default-color);
+  background-color: var(--background-color);
+  padding: 10px 0;
+  transition: all 0.5s;
+  z-index: 997;
+  box-shadow: 0px 0 18px rgba(0, 0, 0, 0.1);
+}
+
+.header .logo {
+  line-height: 1;
+}
+.header .logo img {
+  max-height: 50px;
+  margin-right: 8px;
+}
+
+.header .logo span {
+  color: var(--accent-color);
+  font-size: 26px;
+  font-weight: 700;
+}
+
+@media (max-width: 1200px) {
+  .header .logo {
+    order: 1;
+  }
+
+  .header .navmenu {
+    order: 3;
+    font-size: 16px;
+  }
+}
+
+/*--------------------------------------------------------------
+# Navigation Menu
+--------------------------------------------------------------*/
+/* Navmenu - Desktop */
+@media (min-width: 1200px) {
+  .navmenu {
+    padding: 0;
+    font-size: 18px !important;
+  }
+
+  .navmenu ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    list-style: none;
+    align-items: center;
+  }
+
+  .navmenu li {
+    position: relative;
+  }
+
+  .navmenu a,
+  .navmenu a:focus {
+    color: var(--nav-color);
+    padding: 18px 15px;
+    font-size: 13px;
+    font-family: var(--nav-font);
+    text-transform: uppercase;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    white-space: nowrap;
+    transition: 0.3s;
+  }
+
+  .navmenu a i,
+  .navmenu a:focus i {
+    font-size: 12px;
+    line-height: 0;
+    margin-left: 5px;
+    transition: 0.3s;
+  }
+
+  .navmenu li:last-child a {
+    padding-right: 0;
+  }
+
+  .navmenu li:hover > a,
+  .navmenu .active,
+  .navmenu .active:focus {
+    color: var(--nav-hover-color);
+  }
+
+  .navmenu .dropdown ul {
+    margin: 0;
+    padding: 10px 0;
+    background: var(--nav-dropdown-background-color);
+    display: block;
+    position: absolute;
+    visibility: hidden;
+    left: 14px;
+    top: 130%;
+    opacity: 0;
+    transition: 0.3s;
+    border-radius: 4px;
+    z-index: 99;
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .navmenu .dropdown ul li {
+    min-width: 200px;
+  }
+
+  .navmenu .dropdown ul a {
+    padding: 10px 20px;
+    font-size: 15px;
+    text-transform: none;
+    color: var(--nav-dropdown-color);
+  }
+
+  .navmenu .dropdown ul a i {
+    font-size: 12px;
+  }
+
+  .navmenu .dropdown ul a:hover,
+  .navmenu .dropdown ul .active:hover,
+  .navmenu .dropdown ul li:hover > a {
+    color: var(--nav-dropdown-hover-color);
+  }
+
+  /* منع الفتح بالهوفر */
+  /* .navmenu .dropdown:hover > ul {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    top: 130% !important;
+  } */
+
+  /* .navmenu li.dropdown.language-dropdown:hover > ul {
+    opacity: 1 !important;
+    visibility: visible !important;
+    top: 100% !important;
+  } */
+
+  .language-dropdown .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+  }
+
+  .language-dropdown.show .dropdown-menu {
+    display: block !important;
+  }
+
+  .navmenu .dropdown .dropdown ul {
+    top: 0;
+    left: -90%;
+    visibility: hidden;
+  }
+
+  .navmenu .dropdown .dropdown:hover > ul {
+    opacity: 1;
+    top: 0;
+    left: -100%;
+    visibility: visible;
+  }
+}
+/* .dropdown-menu-end {
+  right: 0;
+  left: auto;
+  transform: translateX(-60%);
+  overflow: hidden;
+} */
+.dropdown-menu-end {
+  right: 0;
+  left: auto;
+}
+
+.language-dropdown .dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  left: auto;
+  transform: none !important;
+}
+
+.dropdown-item:focus,
+.dropdown-item:active {
+  outline: none;
+  box-shadow: none;
+  background: none;
+}
+/* Navmenu - Mobile */
+@media (max-width: 1199px) {
+  .mobile-nav-toggle {
+    color: var(--nav-color);
+    font-size: 28px;
+    line-height: 0;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+
+  .navmenu {
+    padding: 0;
+    z-index: 9997;
+  }
+
+  .navmenu ul {
+    display: none;
+    list-style: none;
+    position: absolute;
+    inset: 60px 20px 20px 20px;
+    padding: 10px 0;
+    margin: 0;
+    border-radius: 6px;
+    background-color: var(--nav-mobile-background-color);
+    overflow-y: auto;
+    transition: 0.3s;
+    z-index: 9998;
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .navmenu a,
+  .navmenu a:focus {
+    color: var(--nav-dropdown-color);
+    padding: 10px 20px;
+    font-family: var(--nav-font);
+    font-size: 17px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    white-space: nowrap;
+    transition: 0.3s;
+  }
+  .navmenu a i,
+  .navmenu a:focus i {
+    font-size: 12px;
+    line-height: 0;
+    margin-left: 5px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: 0.3s;
+    background-color: color-mix(in srgb, var(--accent-color), transparent 90%);
+  }
+
+  .navmenu a i:hover,
+  .navmenu a:focus i:hover {
+    background-color: var(--accent-color);
+    color: var(--contrast-color);
+  }
+
+  .navmenu a:hover,
+  .navmenu .active,
+  .navmenu .active:focus {
+    color: var(--nav-dropdown-hover-color);
+  }
+
+  .navmenu .active i,
+  .navmenu .active:focus i {
+    background-color: var(--accent-color);
+    color: var(--contrast-color);
+    transform: rotate(180deg);
+  }
+
+  .navmenu .dropdown ul {
+    position: static;
+    display: none;
+    z-index: 99;
+    padding: 10px 0;
+    margin: 10px 20px;
+    background-color: var(--nav-dropdown-background-color);
+    border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+    box-shadow: none;
+    transition: all 0.5s ease-in-out;
+  }
+  .navmenu .dropdown ul ul {
+    background-color: rgba(33, 37, 41, 0.1);
+  }
+
+  .mobile-nav-active {
+    overflow: hidden;
+  }
+
+  .mobile-nav-active .mobile-nav-toggle {
+    color: #fff;
+    position: absolute;
+    font-size: 32px;
+    top: 15px;
+    right: 15px;
+    margin-right: 0;
+    z-index: 9999;
+  }
+
+  .mobile-nav-active .navmenu {
+    position: fixed;
+    overflow: hidden;
+    inset: 0;
+    background: rgba(33, 37, 41, 0.8);
+    transition: 0.3s;
+  }
+  .mobile-nav-active .navmenu > ul {
+    display: block;
+  }
+}
+
+/* .language-toggle {
+  position: absolute;
+  right: 60px;
+  top: 15px;
+  z-index: 10000;
+} */
+
+/* .language-toggle .dropdown-menu {
+  right: 0;
+  left: auto;
+} */
+/* ----------------------- test\\
+/* أيقونة اللغة دايمًا على الموبايل */
+/* .language-toggle {
+  position: absolute;
+  right: 30px; 
+  top: 15px;
+  z-index: 10000;
+}
+
+.language-toggle .dropdown-menu {
+  right: 0;
+  left: auto;
+} */
+
+/*--------------------------------------------------------------
+# Global Section Titles
+--------------------------------------------------------------*/
+.section-title {
+  text-align: center;
+  padding-bottom: 60px;
+  position: relative;
+}
+
+.section-title h2 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  padding-bottom: 20px;
+  position: relative;
+}
+
+.section-title h2:after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 50px;
+  height: 3px;
+  background: var(--accent-color);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.section-title p {
+  margin-bottom: 0;
+  font-size: 24px !important;
+}
+
+/*--------------------------------------------------------------
+# Disable aos animation delay on mobile devices
+--------------------------------------------------------------*/
+@media screen and (max-width: 768px) {
+  [data-aos-delay] {
+    transition-delay: 0 !important;
+  }
+}
+
+/*--------------------------------------------------------------
+# Global Page Titles & Breadcrumbs
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# Global Footer
+--------------------------------------------------------------*/
+.footer {
+  color: var(--default-color);
+  background-color: var(--background-color);
+  font-size: 14px;
+  position: relative;
+}
+
+.footer .footer-top {
+  padding-top: 50px;
+  border-top: 1px solid
+    color-mix(in srgb, var(--default-color), transparent 90%);
+}
+
+.footer .footer-about .logo {
+  line-height: 1;
+  margin-bottom: 25px;
+}
+
+.footer .footer-about .logo img {
+  max-height: 40px;
+  margin-right: 6px;
+}
+
+.footer .footer-about .logo span {
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  font-family: var(--heading-font);
+  color: var(--heading-color);
+}
+.footer .footer-about p {
+  font-size: 14px;
+  font-family: var(--heading-font);
+}
+
+.footer h4 {
+  font-size: 16px;
+  font-weight: bold;
+  position: relative;
+  padding-bottom: 12px;
+}
+
+.footer .footer-links {
+  margin-bottom: 30px;
+}
+
+.footer .footer-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer .footer-links ul i {
+  padding-right: 2px;
+  font-size: 12px;
+  line-height: 0;
+}
+
+.footer .footer-links ul li {
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+}
+
+.footer .footer-links ul li:first-child {
+  padding-top: 0;
+}
+
+.footer .footer-links ul a {
+  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  display: inline-block;
+  line-height: 1;
+}
+
+.footer .footer-links ul a:hover {
+  color: var(--accent-color);
+}
+
+.footer .footer-contact p {
+  margin-bottom: 5px;
+}
+
+.footer .copyright {
+  padding: 25px 0;
+  border-top: 1px solid
+    color-mix(in srgb, var(--default-color), transparent 90%);
+}
+.footer .copyright p {
+  margin-bottom: 0;
+}
+
+.footer-links ul li span {
+  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  display: inline-block;
+}
+
+/*--------------------------------------------------------------
+# Preloader
+--------------------------------------------------------------*/
+#preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 999999;
+  overflow: hidden;
+  background: var(--background-color);
+  transition: all 0.6s ease-out;
+}
+
+#preloader:before {
+  content: "";
+  position: fixed;
+  top: calc(50% - 30px);
+  left: calc(50% - 30px);
+  border: 6px solid #ffffff;
+  border-color: var(--accent-color) transparent var(--accent-color) transparent;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: animate-preloader 1.5s linear infinite;
+}
+
+@keyframes animate-preloader {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/*--------------------------------------------------------------
+# Scroll Top Button
+--------------------------------------------------------------*/
+.scroll-top {
+  position: fixed;
+  visibility: hidden;
+  opacity: 0;
+  right: 40px;
+  bottom: 200px;
+  z-index: 99999;
+  background-color: var(--accent-color);
+  width: 55px;
+  height: 55px;
+  border-radius: 8px;
+  transition: all 0.4s;
+}
+
+.scroll-top i {
+  font-size: 24px;
+  color: var(--contrast-color);
+  line-height: 0;
+}
+
+.scroll-top:hover {
+  background-color: color-mix(in srgb, var(--accent-color), transparent 20%);
+  color: var(--contrast-color);
+}
+
+.scroll-top.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+/*--------------------------------------------------------------
+# Global Sections
+--------------------------------------------------------------*/
+section,
+.section {
+  color: var(--default-color);
+  background-color: var(--background-color);
+  padding: 60px 0;
+  scroll-margin-top: 100px;
+  overflow: clip;
+}
+
+@media (max-width: 1199px) {
+  section,
+  .section {
+    scroll-margin-top: 66px;
+  }
+}
+
+/*--------------------------------------------------------------
+# Hero Section
+--------------------------------------------------------------*/
+.hero {
+  padding: 0;
+}
+
+.hero .carousel {
+  width: 100%;
+  min-height: calc(100vh - 75px);
+  padding: 0;
+  margin: 0;
+  position: relative;
+}
+
+@media (max-height: 500px), (max-width: 1200px) {
+  .hero .carousel {
+    min-height: calc(100vh - 48px);
+  }
+}
+
+.hero img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.hero .carousel-item {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.hero .container {
+  background: color-mix(in srgb, var(--surface-color), transparent 40%);
+  position: relative;
+  text-align: center !important; /* ✅ كل النصوص وسط */
+  padding-top: 30px;
+  padding-bottom: 30px;
+  border-top: 4px solid var(--accent-color);
+  z-index: 3;
+}
+
+@media (max-width: 1200px) {
+  .hero .container {
+    margin: 0 50px;
+  }
+}
+
+.hero h2 {
+  margin-bottom: 20px;
+  font-size: 36px;
+  font-weight: 700;
+  text-align: center !important; /* ✅ العنوان مركزي */
+}
+
+@media (max-width: 768px) {
+  .hero h2 {
+    font-size: 30px;
+  }
+}
+
+.hero .btn-get-started {
+  font-weight: 500;
+  font-size: 15px;
+  letter-spacing: 1px;
+  display: inline-block; /* ✅ خلي الزر حجمه الطبيعي */
+  padding: 8px 32px;
+  transition: 0.5s;
+  margin: 10px auto; /* ✅ مركزي أفقياً */
+  border-radius: 4px;
+  color: var(--contrast-color);
+  border: 2px solid var(--accent-color);
+}
+
+.hero .btn-get-started:hover {
+  background: var(--accent-color);
+  color: var(--contrast-color);
+}
+
+/* إزالة أي text-align و direction محددة حسب اللغة */
+html[lang="en"] .hero .container,
+html[lang="it"] .hero .container,
+html[dir="ltr"] .hero .container,
+html[lang="ar"] .hero .container,
+html[dir="rtl"] .hero .container {
+  text-align: center !important;
+  direction: ltr !important; /* direction حسب احتياجك، عادة ltr مناسب للنصوص المختلطة */
+}
+
+html[lang="en"] .hero h2,
+html[lang="it"] .hero h2,
+html[dir="ltr"] .hero h2,
+html[lang="ar"] .hero h2,
+html[dir="rtl"] .hero h2 {
+  text-align: center !important;
+}
+
+html[lang="ar"] .hero .btn-get-started,
+html[dir="rtl"] .hero .btn-get-started {
+  margin: 10px auto;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero .container {
+    text-align: center !important;
+  }
+}
+
+/* .carousel-item {
+  opacity: 0;
+  position: absolute;
+  inset: 0;
+  transition: all 0.3s ease-in-out;
+  z-index: 0;
+}
+
+.carousel-item.active {
+  opacity: 1;
+  z-index: 1;
+} */
+
+/* About Section */
+.about .inner-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 30px;
+  text-align: center;
+  color: var(--text-color);
+}
+
+/* Accordion */
+.about-accordion {
+  width: 100%;
+}
+
+.about .accordion-item {
+  border: none;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  background-color: #f8f9fa;
+}
+
+.about .accordion-button {
+  background: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-color);
+  padding: 15px 20px;
+  transition: 0.3s;
+}
+
+.about .accordion-button:not(.collapsed) {
+  color: var(--accent-color);
+  background: #e9ecef;
+}
+
+.about .accordion-button:focus {
+  box-shadow: none;
+}
+
+.about .accordion-body {
+  padding: 15px 20px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  background-color: #f8f9fa;
+}
+
+/* Lists */
+.about ul li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.about ul i {
+  color: var(--accent-color);
+  font-size: 1.2rem;
+  margin-top: 3px;
+}
+
+/* Image */
+.about img {
+  width: 100%;
+  max-height: 550px; /* طول أكبر للصورة */
+  object-fit: cover;
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+  .about .accordion-item {
+    font-size: 0.95rem;
+  }
+
+  .about img {
+    max-height: 400px;
+    margin-bottom: 20px;
+  }
+
+  .about .accordion-button {
+    font-size: 1rem;
+  }
+
+  .about .accordion-body {
+    font-size: 0.9rem;
+  }
+}
+
+/* ترتيب الصورة فوق على الموبايل */
+@media (max-width: 991px) {
+  .about .row.flex-column-reverse {
+    flex-direction: column;
+  }
+}
+/* About image container */
+.about .about-img {
+  position: relative;
+  min-height: 550px;
+  width: 100%;
+}
+
+@media (min-width: 992px) {
+  .about .about-img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-height: 750px !important;
+  }
+}
+
+/* الصورة نفسها */
+.about .about-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 0.5rem;
+}
+
+/* new sections  */
+/* Section Styling */
+.section {
+  position: relative;
+  width: 100%;
+}
+.section-title h2.inner-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+.list-group-item {
+  background: transparent;
+  border: none;
+  padding-left: 0;
+  padding-right: 0;
+  padding-bottom: 0.5rem;
+}
+.accordion-button:not(.collapsed) {
+  color: #fff;
+  background-color: #0d6efd;
+}
+.accordion-button {
+  font-weight: 500;
+}
+.accordion-body ul {
+  padding-left: 1rem;
+}
+/*--------------------------------------------------------------
+# Services Section
+--------------------------------------------------------------*/
+.services .service-item {
+  background-color: var(--surface-color);
+  box-shadow: 0px 5px 90px 0px rgba(0, 0, 0, 0.1);
+  height: 100%;
+  padding: 60px 30px;
+  text-align: center;
+  transition: 0.3s;
+  border-radius: 5px;
+}
+
+.services .service-item .icon {
+  margin: 0 auto;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: ease-in-out 0.3s;
+  position: relative;
+}
+
+.services .service-item .icon i {
+  font-size: 36px;
+  transition: 0.5s;
+  position: relative;
+}
+
+.services .service-item .icon svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.services .service-item .icon svg path {
+  transition: 0.5s;
+  fill: color-mix(in srgb, var(--default-color), transparent 95%);
+}
+
+.services .service-item h3 {
+  font-weight: 700;
+  margin: 10px 0 15px 0;
+  font-size: 22px;
+}
+
+.services .service-item p {
+  line-height: 24px;
+  font-size: 17px;
+  margin-bottom: 0;
+}
+
+.services .service-item:hover {
+  box-shadow: 0px 5px 35px 0px rgba(0, 0, 0, 0.1);
+}
+
+.services .service-item.item-cyan i {
+  color: #0dcaf0;
+}
+
+.services .service-item.item-cyan:hover .icon i {
+  color: #fff;
+}
+
+.services .service-item.item-cyan:hover .icon path {
+  fill: #0dcaf0;
+}
+
+.services .service-item.item-orange i {
+  color: #fd7e14;
+}
+
+.services .service-item.item-orange:hover .icon i {
+  color: #fff;
+}
+
+.services .service-item.item-orange:hover .icon path {
+  fill: #fd7e14;
+}
+
+.services .service-item.item-teal i {
+  color: #20c997;
+}
+
+.services .service-item.item-teal:hover .icon i {
+  color: #fff;
+}
+
+.services .service-item.item-teal:hover .icon path {
+  fill: #20c997;
+}
+
+.services .service-item.item-red i {
+  color: #df1529;
+}
+
+.services .service-item.item-red:hover .icon i {
+  color: #fff;
+}
+
+.services .service-item.item-red:hover .icon path {
+  fill: #df1529;
+}
+
+.services .service-item.item-indigo i {
+  color: #6610f2;
+}
+
+.services .service-item.item-indigo:hover .icon i {
+  color: #fff;
+}
+
+.services .service-item.item-indigo:hover .icon path {
+  fill: #6610f2;
+}
+
+.services .service-item.item-pink i {
+  color: #f3268c;
+}
+
+.services .service-item.item-pink:hover .icon i {
+  color: #fff;
+}
+
+.services .service-item.item-pink:hover .icon path {
+  fill: #f3268c;
+}
+
+.cert-card {
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+.cert-card:hover {
+  transform: scale(1.05);
+}
+
+.cert-card .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.65);
+  color: #fff;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.cert-card:hover .overlay {
+  opacity: 1;
+}
+
+/*--------------------------------------------------------------
+# Portfolio Section
+--------------------------------------------------------------*/
+.portfolio .portfolio-filters {
+  padding: 0;
+  margin: 0 auto 20px auto;
+  list-style: none;
+  text-align: center;
+}
+
+.portfolio .portfolio-filters li {
+  cursor: pointer;
+  display: inline-block;
+  padding: 8px 20px 10px 20px;
+  margin: 0;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1;
+  margin-bottom: 5px;
+  border-radius: 4px;
+  transition: all 0.3s ease-in-out;
+  font-family: var(--heading-font);
+}
+
+.portfolio .portfolio-filters li:hover,
+.portfolio .portfolio-filters li.filter-active {
+  color: var(--contrast-color);
+  background-color: var(--accent-color);
+}
+
+.portfolio .portfolio-filters li:first-child {
+  margin-left: 0;
+}
+
+.portfolio .portfolio-filters li:last-child {
+  margin-right: 0;
+}
+
+@media (max-width: 575px) {
+  .portfolio .portfolio-filters li {
+    font-size: 14px;
+    margin: 0 0 10px 0;
+  }
+}
+
+/* تأثير عند Hover: Zoom + Flash */
+
+/* Overlay يظهر من تحت */
+
+/* ظهور Overlay عند Hover */
+
+.portfolio-description {
+  display: none;
+  margin-bottom: 30px;
+}
+.portfolio-description {
+  display: none; /* Hidden by default */
+  background-color: #f9f9f9;
+  border-left: 5px solid var(--accent-color);
+  padding: 20px 25px;
+  margin-bottom: 25px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #333;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.portfolio-description p {
+  margin-bottom: 15px;
+}
+
+.portfolio-description strong {
+  color: var(--accent-color);
+}
+.isotope-container {
+  min-height: 500px; /* ارتفاع مؤقت لعدم تكدس الصور */
+}
+
+/*--------------------------------------------------------------
+# Contact Section
+--------------------------------------------------------------*/
+.contact {
+  padding-top: 0;
+}
+
+.contact .info {
+  background-color: var(--surface-color);
+  padding: 40px;
+  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.contact .info h3 {
+  font-weight: 600;
+  font-size: 24px;
+}
+
+.contact .info p {
+  color: color-mix(in srgb, var(--default-color), transparent 40%);
+  margin-bottom: 30px;
+  font-size: 15px;
+}
+
+.contact .info-item + .info-item {
+  padding-top: 20px;
+  margin-top: 20px;
+  border-top: 1px solid
+    color-mix(in srgb, var(--default-color), transparent 90%);
+}
+
+.contact .info-item i {
+  font-size: 24px;
+  color: var(--accent-color);
+  transition: all 0.3s ease-in-out;
+  margin-right: 20px;
+}
+
+.contact .info-item h4 {
+  padding: 0;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.contact .info-item p {
+  padding: 0;
+  margin-bottom: 0;
+  font-size: 14px;
+  color: color-mix(in srgb, var(--default-color), transparent 40%);
+}
+
+.contact .php-email-form {
+  width: 100%;
+}
+
+.contact .php-email-form .form-group {
+  padding-bottom: 8px;
+}
+
+.contact .php-email-form input[type="text"],
+.contact .php-email-form input[type="email"],
+.contact .php-email-form textarea {
+  color: var(--default-color);
+  background-color: var(--surface-color);
+  border-radius: 0px;
+  box-shadow: none;
+  font-size: 14px;
+  border-color: color-mix(in srgb, var(--default-color), transparent 80%);
+}
+
+.contact .php-email-form input[type="text"]:focus,
+.contact .php-email-form input[type="email"]:focus,
+.contact .php-email-form textarea:focus {
+  border-color: var(--accent-color);
+}
+
+.contact .php-email-form input[type="text"]::placeholder,
+.contact .php-email-form input[type="email"]::placeholder,
+.contact .php-email-form textarea::placeholder {
+  color: color-mix(in srgb, var(--default-color), transparent 70%);
+}
+
+.contact .php-email-form input[type="text"],
+.contact .php-email-form input[type="email"] {
+  height: 48px;
+  padding: 10px 15px;
+}
+
+.contact .php-email-form textarea {
+  padding: 10px 12px;
+  height: 290px;
+}
+
+.contact .php-email-form button[type="submit"] {
+  background: var(--accent-color);
+  color: var(--contrast-color);
+  border: 0;
+  padding: 13px 50px;
+  transition: 0.4s;
+  border-radius: 4px;
+}
+
+.contact .php-email-form button[type="submit"]:hover {
+  background: color-mix(in srgb, var(--accent-color) 90%, black 15%);
+}
+
+/* ////////////////////////////////////////////// */
+/* addition work  */
+.navmenu a {
+  font-size: 17px !important;
+}
+nav ul li a {
+  font-size: 17px !important;
+}
+.header .navmenu a {
+  font-size: 17px !important;
+}
+.header .navmenu a {
+  font-size: 17px !important;
+  font-weight: 400;
+}
+
+/* Arabic Styles  */
+
+/* الناف عادية على ديسكتوب */
+.navmenu {
+  display: flex;
+  align-items: center;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Smooth dropdown animation */
+.dropdown-menu {
+  opacity: 0;
+  transform: translateY(10px);
+  visibility: hidden;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.dropdown-menu.show {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+}
+
+/* Navbar Links - Desktop & Mobile */
+.navmenu a,
+.navmenu a:focus,
+.navmenu .dropdown-item {
+  font-weight: 700 !important; /* خليها bold أكتر */
+  letter-spacing: 0.5px; /* اختياري يعطي إحساس بالقوة */
+}
+
+/* لو عايز hover كمان يبقى واضح */
+.navmenu a:hover,
+.navmenu .dropdown-item:hover {
+  color: var(--nav-hover-color) !important;
+}
+
+/*--------------------------------------------------------------
+# Hero Section Adjustments
+--------------------------------------------------------------*/
+.hero .carousel-item .container {
+  position: relative;
+  z-index: 2;
+  max-width: 900px; /* أقل عرض للـ overlay */
+  margin: 80px auto 0; /* وسط المحتوى أفقياً ونزله للأسفل */
+  padding: 40px 30px; /* مسافات داخلية جيدة */
+  text-align: center;
+  background: color-mix(in srgb, var(--surface-color), transparent 40%);
+  border-top: 4px solid var(--accent-color);
+  border-radius: 8px; /* حواف مستديرة */
+}
+
+/* paragraph تحت العنوان أكبر */
+.hero .carousel-item p {
+  font-size: 18px; /* تكبير الخط */
+  line-height: 1.7; /* مسافة بين السطور */
+  margin-bottom: 20px;
+  color: var(--default-color);
+}
+
+/* الصورة الخلفية تغطي كامل الشاشة وتتكيف مع أي resolution */
+.hero img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* تغطي كامل الـ container بدون تشويه */
+  object-position: center;
+  z-index: 1;
+}
+
+/* التأكد من أن الـ carousel-item يغطي الشاشة بالكامل */
+.hero .carousel-item {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  width: 100%;
+  height: 100vh; /* يجعل كل slide يغطي ارتفاع الشاشة */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Hero container زي باقي السكشنات
+.hero .carousel-item {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  width: 100%;
+  height: 100vh; */
+/* max-width: 1400px;  */
+/* margin: 0 auto; */
+/* background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+} */
+/*--------------------------------------------------------------
+# Hero Section
+--------------------------------------------------------------*/
+/* Hero Section */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* يغطي كل ارتفاع الشاشة */
+  overflow: hidden;
+}
+
+.hero .carousel {
+  width: 100%;
+  height: 100%;
+}
+
+.hero .carousel-item {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.hero .carousel-item img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* الصورة تغطي الحيز بالكامل */
+  object-position: center; /* يحافظ على مركز الصورة */
+}
+
+/* Container النصوص فوق الصورة */
+/* .hero .container {
+  position: relative;
+  max-width: 1200px; 
+  margin: 0 auto;
+  padding: 30px;
+  z-index: 10;
+  text-align: center;
+  background: color-mix(in srgb, var(--surface-color), transparent 40%);
+  border-top: 4px solid var(--accent-color);
+} */
+
+.loading,
+.error-message,
+.sent-message {
+  display: none; /* أخفيهم بشكل افتراضي */
+}
+
+/* ألوان حسب الدولة */
+
+.branch-title {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* المسافة بين الاسم والعلم */
+  font-size: 22px; /* حجم الخط الأساسي */
+}
+
+.flag-icon {
+  font-size: 32px; /* حجم العلم */
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* المسافة بين الأيقونة والنص */
+}
+
+.logo-icon {
+  width: 160px; /* عرض الأيقونة */
+  height: 160px; /* ارتفاع الأيقونة */
+  object-fit: contain;
+}
+
+/*--------------------------------------------------------------
+# Global Footer - Updated Font Sizes
+--------------------------------------------------------------*/
+.footer {
+  font-size: 18px; /* زيادة حجم النص الأساسي */
+  line-height: 1.8; /* تحسين المسافة بين السطور */
+}
+
+.footer h4 {
+  font-size: 18px; /* تكبير عناوين الأعمدة */
+}
+
+.footer .footer-about p,
+.footer .footer-contact p,
+.footer .footer-links ul li a,
+.footer .footer-newsletter input[type="email"],
+.footer .footer-newsletter input[type="submit"],
+.footer .copyright {
+  font-size: 19px; /* تكبير النصوص العامة والروابط والفورم */
+}
+
+.footer .footer-about .logo span {
+  font-size: 18px; /* تكبير اسم الموقع */
+}
+
+.portfolio-filters li {
+  font-size: 18px !important; /* حجم الخط أكبر */
+  padding: 10px 20px; /* زيادة المسافة الداخلية */
+  cursor: pointer; /* مؤشر اليد */
+  transition: 0.3s; /* تأثير سلس عند التحريك */
+}
+
+.portfolio-filters li.filter-active {
+  font-weight: bold; /* إبراز العنصر النشط */
+  font-size: 22px; /* أكبر شوية للعناصر النشطة */
+}
+
+.whatsapp-float {
+  position: fixed;
+  bottom: 80px; /* المسافة من تحت الصفحة */
+  right: 40px; /* المسافة من اليمين */
+  background-color: #25d366; /* لون الواتس الأخضر */
+  color: white;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+.flag-icon {
+  width: 20px;
+  height: 15px;
+}
+
+.portfolio-description {
+  font-size: 1.2rem; /* كبّر على مزاجك 1.2 / 1.3 */
+  line-height: 1.6;
+}
+
+/* .language-dropdown .dropdown-menu {
+  display: none;
+} */
+
+.language-dropdown.show .dropdown-menu {
+  display: block;
+}
+
+/* مهم: منع أي hover قديم */
+/* .language-dropdown:hover .dropdown-menu {
+  display: none !important;
+} */
+
+/* إخفاء القائمة افتراضياً */
+.language-dropdown .dropdown-menu {
+  display: none !important;
+}
+
+/* لما تضغط على الأيقونة، تظهر */
+.language-dropdown.show .dropdown-menu {
+  display: block !important;
+}
+
+/* منع أي Hover قديم إنه يفتح أو يقفل */
+.language-dropdown:hover .dropdown-menu {
+  display: none !important;
+}
+
+/* تكبير الناف - آخر حاجة تضيفها */
+#header .navmenu a,
+#header .navmenu,
+.header .navmenu a {
+  font-size: 15px !important;
+}
+
+/* تكبير قائمة اللغة + margin */
+.language-toggle .dropdown-menu {
+  width: 200px !important; /* عرض أوسع */
+  min-width: 200px !important;
+}
+
+/* light house work  */
+/* Lighthouse 100/100 - بدون تغيير التصميم */
+@media (prefers-reduced-motion: reduce) {
+  .carousel-fade .active.carousel-item {
+    transition: none !important;
+  }
+}
+
+.hero .carousel-item img {
+  content-visibility: auto;
+  contain-intrinsic-size: 400 300;
+  will-change: transform;
+}
+
+.hero {
+  contain: layout style paint;
+}
+
+/* تحسين Performance بدون تأثير على الشكل */
+* {
+  box-sizing: border-box;
+}
+/* .ticker-container {
+  max-width: 1200px; 
+  margin: 0 auto;
+  overflow: hidden;
+  padding: 15px 0;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  background: #fff;
+}
+
+.ticker-track {
+  display: flex;
+  gap: 25px;
+  width: max-content; 
+  animation: slideLTR 20s linear infinite;
+}
+
+.ticker-track img {
+  width: 160px;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+
+@keyframes slideLTR {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  } /* يتحرك نصف طول الصور فقط */
+/* } */
+.ticker-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
+  padding: 15px 0;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  background: #fff;
+}
+
+.ticker-track {
+  display: flex;
+  gap: 25px;
+  width: max-content;
+  animation: slideLTR 35s linear infinite;
+  /* للـ RTL نحتاج flip منطقي */
+  transform-origin: left center;
+}
+
+.ticker-track img {
+  width: 160px;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+/* LTR - من اليمين لليسار مستمر */
+@keyframes slideLTR {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* RTL - من اليسار لليمين مستمر */
+@keyframes slideRTL {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* **الحل النهائي للـ RTL** */
+.rtl .ticker-track {
+  animation-name: slideRTL !important;
+  transform: scaleX(-1); /* يقلب المحتوى للعربي */
+}
+
+.rtl .ticker-track img {
+  transform: scaleX(-1); /* يعكس الصور */
+}
+/* بدل الـ scaleX، استخدم هذا */
+.rtl .ticker-container {
+  direction: ltr; /* يخلي الـ ticker يشتغل زي الإنجليزي */
+}
+
+.rtl .ticker-track {
+  animation-name: slideLTR !important; /* نفس الـ animation */
+}
+
+/* ///////////////////////////////////// Arabic Hell ///////////////////////////////// */
+
+/* -------------------------------------------
+   RTL FIXES for Arabic
+   Apply ONLY when <html dir="rtl">
+------------------------------------------- */
+
+html[dir="rtl"] body {
+  direction: rtl;
+  text-align: right;
+}
+
+html[dir="rtl"] .header {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+}
+
+html[dir="rtl"] .header .logo {
+  margin-right: 0 !important;
+  margin-left: auto !important;
+}
+html[dir="rtl"] .navmenu {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+/* Logo aligns left naturally in RTL, so flip it */
+html[dir="rtl"] .header .logo img {
+  margin-right: 0;
+  /* margin-left: 50rem; */
+}
+
+/* Reverse nav items */
+html[dir="rtl"] .navmenu ul {
+  /* flex-direction: row-reverse; */
+}
+
+/* Remove default left margin and convert it to right */
+html[dir="rtl"] .navmenu a {
+  padding: 18px 15px;
+}
+
+html[dir="rtl"] .navmenu a i {
+  margin-left: 0;
+  margin-right: 5px;
+}
+
+/* Dropdown menu flip */
+html[dir="rtl"] .dropdown-menu-end {
+  right: auto;
+  left: 0;
+}
+
+/* Desktop dropdown alignment */
+@media (min-width: 1200px) {
+  html[dir="rtl"] .navmenu .dropdown ul {
+    left: auto;
+    right: 14px;
+  }
+
+  html[dir="rtl"] .navmenu .dropdown .dropdown ul {
+    left: auto;
+    right: -100%;
+  }
+}
+
+/* Mobile menu fix */
+@media (max-width: 1199px) {
+  html[dir="rtl"] .navmenu ul {
+    inset: 60px 20px 20px 20px;
+    text-align: right;
+  }
+
+  html[dir="rtl"] .navmenu a i {
+    margin-right: 5px;
+    margin-left: 0;
+  }
+}
+
+/* Language button position fix */
+html[dir="rtl"] .language-toggle {
+  right: auto !important;
+  left: 30px !important;
+}
+
+/* About Section in Arabic  //////////. //////////. //////////////////////////////////////////////////////////////////////*/
+/* About Section in Arabic  //////////. //////////. //////////////////////////////////////////////////////////////////////*/
+
+/* --- ABOUT RTL FIXES --- */
+/* --- ABOUT RTL FIXES FULL --- */
+html[dir="rtl"] #about .row {
+  direction: rtl;
+}
+
+/* الصورة تبقى ناحية اليمين */
+html[dir="rtl"] #about .about-img {
+  right: auto;
+  left: 0;
+}
+
+/* النص يكون على الشمال */
+html[dir="rtl"] #about .col-lg-7:last-child {
+  text-align: right;
+}
+
+/* قصة الشركة - padding عكس الاتجاه */
+@media (min-width: 991px) {
+  html[dir="rtl"] #about .our-story {
+    padding-right: 40px !important;
+    padding-left: 35% !important;
+  }
+}
+
+/* ---- المميزات ---- */
+html[dir="rtl"] #about ul li {
+  flex-direction: row-reverse; /* قلب أيقونة الصح */
+  text-align: right;
+  justify-content: flex-end; /* جميع العناصر على اليمين */
+}
+
+html[dir="rtl"] #about ul li i {
+  margin-left: 0.5rem; /* مسافة صغيرة من النص */
+  margin-right: 0;
+}
+
+/* ---- زرار الفيديو ---- */
+html[dir="rtl"] #about .watch-video {
+  flex-direction: row; /* أيقونة الفيديو يمين */
+  justify-content: flex-start;
+}
+
+html[dir="rtl"] #about .watch-video a {
+  margin-left: 0;
+  margin-right: 8px;
+}
+
+/* المميزات في RTL */
+html[dir="rtl"] #about ul li {
+  display: flex;
+  flex-direction: row; /* الأيقونة على يمين النص */
+  align-items: center;
+  justify-content: flex-start; /* النص + أيقونة يبقوا على اليمين */
+  text-align: left;
+}
+
+html[dir="rtl"] #about ul li i {
+  margin-right: 0; /* إزالة المسافة اليسرى */
+  margin-left: 0.5rem; /* مسافة صغيرة على اليسار (بعد النص) */
+}
+
+/* Contact us  */
+/* لكل اللغات */
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 14px; /* المسافة بين الأيقونة والنص */
+}
+
+/* لو اللغة عربية RTL */
+html[lang="ar"] .info-item {
+  flex-direction: row-reverse; /* الأيقونة على اليمين */
+}
+
+.watch-video {
+  touch-action: manipulation; /* يسمح بالنقر فقط، يمنع السحب */
+}
+
+.branch-title .emoji {
+  margin-left: 4px; /* مسافة بسيطة بين النص والإيموجي */
+  font-size: 1em; /* نفس حجم النص */
+  line-height: 1; /* يحافظ على السطر */
+}
+
+/* إذا حابب تحدد أقصى ارتفاع على الموبايل */
+@media (max-width: 768px) {
+  .hero .carousel-item img {
+    max-height: 400px; /* ارتفاع مناسب للشاشة الصغيرة */
+  }
+}
+/* للعرض أقل من 770px */
+/* للعرض أقل من 770px */
+@media (max-width: 770px) {
+  .hero {
+    height: 40vh; /* ارتفاع السكشن 80% من الشاشة */
+    overflow: hidden; /* لمنع أي scroll إضافي */
+  }
+  .hero .carousel-item img {
+    width: 100%; /* تغطي عرض السكشن بالكامل */
+    height: 300px; /* ارتفاع ثابت لجميع الصور على الموبايل */
+    object-fit: cover; /* الصورة تملأ العنصر بدون تشويه */
+    display: block;
+    margin: 0 auto;
+  }
+
+  /* النصوص تبقى قريبة من الصور */
+  .hero .carousel-item .container {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  /* تصغير حجم النصوص على الموبايل */
+  .hero .carousel-item h2 {
+    font-size: 1.5rem;
+  }
+  .hero .carousel-item p {
+    font-size: 0.9rem;
+    overflow-y: auto;
+  }
+  .hero .container {
+    position: absolute;
+    top: -59%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 500px;
+    height: 220px; /* ارتفاع ثابت */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* يوزع h2 + p + button بشكل متناسق */
+    padding: 15px;
+    text-align: center;
+    background: color-mix(in srgb, var(--surface-color), transparent 40%);
+    border-top: 4px solid var(--accent-color);
+    z-index: 3;
+  }
+}
+
+#header .navmenu a,
+#header .navmenu,
+.header .navmenu a {
+  font-size: 20px !important;
+}
+
+/* تكبير أيقونة اللغة عند اختيار العربية */
+
+.dropdown-item .fi {
+  font-size: 1.3rem; /* ممكن تزود حسب ما تحب */
+  margin-right: 8px;
+}
+
+.flag-icon {
+  width: 1.5em; /* يمكنك زيادة الحجم */
+  height: 1em;
+  display: inline-block;
+  background-size: cover;
+  vertical-align: middle;
+}
+
+.fi {
+  display: inline-block;
+  width: 1.5em; /* حجم العلم */
+  height: 1em;
+  font-size: 1em;
+  line-height: 1;
+  vertical-align: middle;
+}
+.branch-title .fi {
+  display: inline-block !important;
+  font-size: 1.2em; /* حجم مناسب للعلم */
+}
+
+.img-fluid {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.portfolio-group .col-md-6 {
+  height: auto; /* أو ما تضبطش height نهائيًا */
+}
+
+.sick {
+  font-size: 20px !important; /* حجم الخط */
+
+  direction: rtl; /* اتجاه الكتابة من اليمين للشمال */
+}
+
+/* ////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* certifications */
+/* ////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* ===========================
+   Container
+=========================== */
+.cert-ticker-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
+  padding: 20px 0;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  background: #fff;
+  position: relative;
+}
+
+.cert-ticker-track {
+  display: flex;
+  gap: 50px;
+  width: max-content;
+  animation: slideLTR 30s linear infinite;
+  align-items: center;
+  white-space: nowrap;
+  transform-origin: left center;
+}
+
+.cert-item {
+  flex-shrink: 0;
+  text-decoration: none;
+  position: relative;
+  z-index: 5;
+}
+
+.cert-title {
+  display: block;
+  font-size: 22px;
+  font-weight: 700;
+  color: #333;
+  padding: 12px 20px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: 12px;
+  border: 2px solid #dee2e6;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  min-width: 220px;
+  text-align: center;
+}
+
+.cert-item:hover .cert-title {
+  background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+  color: white;
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 123, 255, 0.3);
+}
+
+/* popup فوق الكلمة */
+.qr-popup {
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  padding: 8px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.qr-popup img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* LTR - من اليمين لليسار مستمر */
+@keyframes slideLTR {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* RTL - من اليسار لليمين مستمر */
+@keyframes slideRTL {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* عند hover نوقف الحركة */
+.cert-ticker-container:hover .cert-ticker-track,
+.cert-ticker-track:hover {
+  animation-play-state: paused;
+}
+
+/* دعم RTL */
+.rtl .cert-ticker-track {
+  animation-name: slideRTL !important;
+}
+
+.rtl .cert-ticker-track .cert-item {
+  direction: ltr; /* يحافظ على نصوص الشهادات */
+}
+@media (max-width: 1199px) {
+  html[dir="rtl"] .about ul li i {
+    margin-left: 0 !important; /* شيل المسافة من ناحية الشمال */
+    margin-right: 0 !important; /* وشيلها من ناحية اليمين لو موجودة */
+  }
+}
+
+/* ===== Indicators (الدوائر اللي تحت) ===== */
+#hero-carousel .carousel-indicators {
+  bottom: -10px; /* ثابت تحت */
+}
+
+#hero-carousel .carousel-indicators button {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  transition: background-color 0.4s ease, transform 0.3s ease, opacity 0.4s ease;
+}
+
+.carousel-indicators [data-bs-target] {
+  background-color: #ffffff !important;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  opacity: 1;
+  transition: background-color 0.4s ease, transform 0.3s ease, opacity 0.4s ease;
+}
+
+.carousel-indicators [data-bs-target]:hover,
+.carousel-indicators .active {
+  background-color: var(--accent-color) !important;
+  transform: scale(1.2); /* تكبير خفيف عند hover أو active */
+}
+
+/* ===== Arrows (السهمين يمين وشمال) ===== */
+
+/* شكل الأيقونة الطبيعي (أبيض) */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  filter: invert(1);
+  transition: 0.7s ease;
+  background-size: 60px;
+}
+
+/* نخلي الزرار نفسه صغير قد الأيقونة */
+.carousel-control-prev,
+.carousel-control-next {
+  width: 80px;
+  height: 80px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  background-color: rgb(172, 171, 171);
+}
+.carousel-control-prev {
+  left: 40px;
+}
+.carousel-control-next {
+  right: 40px;
+}
+/* الدايرة البيضاء الصغيرة */
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+  background-color: #ffffff;
+  border-radius: 50%;
+}
+
+/* السهم يصبح أخضر عند الهوفر */
+.carousel-control-prev:hover .carousel-control-prev-icon,
+.carousel-control-next:hover .carousel-control-next-icon {
+  filter: invert(54%) sepia(94%) saturate(613%) hue-rotate(85deg)
+    brightness(92%) contrast(96%);
+}
+
+/* html[dir="rtl"] .carousel-control-prev {
+  right: 40px;
+  left: auto;
+}
+
+html[dir="rtl"] .carousel-control-next {
+  left: 40px;
+  right: auto;
+} */
+/* الوضع الطبيعي LTR */
+.carousel-control-prev {
+  left: 40px;
+  right: auto;
+}
+
+.carousel-control-next {
+  right: 40px;
+  left: auto;
+}
+
+/* الوضع RTL */
+html[dir="rtl"] .carousel-control-prev {
+  left: 40px; /* بدل left */
+  right: auto;
+}
+
+html[dir="rtl"] .carousel-control-next {
+  right: 40px; /* بدل right */
+  left: auto;
+}
+
+html[dir="rtl"] .portfolio-filters li {
+  font-size: 22px !important; /* تكبير خفيف للنصوص */
+}
+
+@media (max-width: 770px) {
+  /* الأزرار على منتصف الصورة */
+  .hero .carousel-control-prev,
+  .hero .carousel-control-next {
+    position: absolute; /* تأكد إنهم absolute */
+    top: 12%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    background-color: rgba(172, 171, 171, 0.8);
+    z-index: 10; /* أعلى من الصور والcontainer */
+  }
+  .hero .carousel-control-prev {
+    left: 15px !important;
+  }
+  .hero .carousel-control-next {
+    right: 15px !important;
+  }
+
+  /* النقاط أسفل الصورة مباشرة */
+  #hero-carousel .carousel-indicators {
+    position: absolute !important; /* مهم عشان يظهر فوق overflow hidden */
+    /* bottom: 10px; */
+    top: 16rem;
+    left: 37%;
+    transform: translateX(-50%);
+    z-index: 10; /* فوق كل العناصر */
+  }
+
+  /* لو احتاجت تكبير للنقاط */
+  #hero-carousel .carousel-indicators button {
+    width: 12px;
+    height: 12px;
+  }
+}
+
+.portfolio-group .row.g-3 .col-md-6 {
+  position: relative;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 12px !important;
+  background-color: #f5f5f5;
+}
+
+.portfolio-group .row.g-3 .col-md-6 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.portfolio-group .row.g-3 .col-md-6 img:hover {
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .portfolio-group .row.g-3 .col-md-6 {
+    width: 100%;
+    padding-bottom: 50%;
+  }
+  .portfolio-group .row.g-3 .col-md-6 img {
+    background-color: #f5f5f5; /* لتغطية أي فراغات حول الصورة */
+    transition: transform 0.3s ease;
+  }
+}
+
+/* Target existing columns for uniform frames */
+.col-lg-4.col-md-6.isotope-item.first-three {
+  padding: 0;
+  margin-bottom: 1.5rem;
+}
+
+/* Create frame around existing img-fluid */
+.col-lg-4.col-md-6.isotope-item.first-three a {
+  display: block;
+  position: relative;
+  height: 0;
+  padding-bottom: 75%; /* Fixed 4:3 aspect ratio */
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.col-lg-4.col-md-6.isotope-item.first-three a:hover {
+  transform: scale(1.02);
+}
+
+.col-lg-4.col-md-6.isotope-item.first-three img.img-fluid {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  transition: transform 0.3s ease;
+}
+
+.col-lg-4.col-md-6.isotope-item.first-three a:hover img.img-fluid {
+  transform: scale(1.08);
+}
+
+/* Mobile: full width single column */
+@media (max-width: 768px) {
+  .col-lg-4.col-md-6.isotope-item.first-three {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .col-lg-4.col-md-6.isotope-item.first-three a {
+    padding-bottom: 100%; /* Square on mobile */
+  }
+}
+
+/* Ensure Bootstrap grid works */
+@media (max-width: 991px) and (min-width: 769px) {
+  .col-lg-4.col-md-6.isotope-item.first-three {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+
+/* //////////////////////////////////////////////////////////////////////////////// */
+/*////////////////////////////////PDFS WORK //////// //////////////////////////////*
+/* //////////////////////////////////////////////////////////////////////////////// */
+.pdf-ticker-box {
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
+  padding: 25px 0; /* ✅ مسافة أكبر شوية */
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  background: linear-gradient(90deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  direction: ltr;
+}
+
+.pdf-track {
+  display: flex;
+  gap: 30px; /* ✅ مسافة أكبر بين العناصر */
+  width: max-content;
+  animation: pdf-slideLTR 45s linear infinite;
+  padding: 0 120px;
+}
+
+.pdf-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  min-width: 160px; /* ✅ عرض أكبر للعنصر كله */
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.pdf-item:hover {
+  transform: translateY(-5px); /* ✅ رفع أكبر ع hover */
+}
+
+.pdf-thumb {
+  width: 120px; /* ✅ أكبر من 85px */
+  height: 160px; /* ✅ أكبر من 110px - نسبة 3:4 */
+  object-fit: cover;
+  border-radius: 12px; /* ✅ border أكبر */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2); /* ✅ shadow أقوى */
+  margin-bottom: 10px; /* ✅ مسافة أكبر تحت الصورة */
+  flex-shrink: 0;
+}
+
+.pdf-name {
+  font-size: 0.95rem; /* ✅ أكبر من 0.78rem */
+  font-weight: 600; /* ✅ أثقل */
+  text-align: center;
+  color: #2c3e50;
+  line-height: 1.3;
+  max-width: 140px; /* ✅ أوسع */
+  max-height: 50px; /* ✅ أطول */
+  overflow: hidden;
+  padding: 0 4px;
+}
+
+/* باقي الـ animations نفسها */
+@keyframes pdf-slideLTR {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+html[dir="rtl"] .pdf-track {
+  animation-name: pdf-slideRTL;
+}
+
+@keyframes pdf-slideRTL {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* Responsive - حجم مناسب على الموبايل */
+@media (max-width: 768px) {
+  .pdf-thumb {
+    width: 90px;
+    height: 120px;
+  }
+  .pdf-name {
+    font-size: 0.85rem;
+    max-width: 110px;
+  }
+  .pdf-item {
+    min-width: 120px;
+  }
+}
+
+.pdf-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  min-width: 160px;
+  flex-shrink: 0;
+}
+
+/* ✅ الاسم العادي - شكل أنيق متناسق */
+.pdf-name {
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-align: center;
+  color: #2c3e50;
+  line-height: 1.3;
+  max-width: 140px;
+  max-height: 50px;
+  overflow: hidden;
+  padding: 8px 18px; /* ✅ padding مناسب عادي */
+  border-radius: 8px; /* ✅ border-radius عادي */
+  background: linear-gradient(
+    135deg,
+    #f8f9fa,
+    #e9ecef
+  ); /* ✅ خلفية فاتحة أنيقة */
+  border: 1px solid #e0e6ed; /* ✅ border خفيف */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); /* ✅ shadow خفيف */
+  margin-top: 8px; /* ✅ مسافة مناسبة */
+  transition: all 0.3s ease; /* ✅ انتقال سلس */
+}
+/* ✅ شكل أيقونات العملاء */
+.clients-wrap .client-logo img {
+  width: 100%; /* ياخد كل عرض العمود */
+  max-width: 150px; /* أقصى عرض للصورة */
+  height: auto; /* يحافظ على نسبة الطول/العرض */
+  object-fit: contain;
+  display: block;
+  margin: 0 auto 20px; /* يضيف مسافة تحت كل صورة */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect */
+.clients-wrap .client-logo img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 123, 255, 0.25);
+}
+
+/* Responsive tweaks */
+@media (max-width: 1200px) {
+  .clients-wrap .client-logo img {
+    max-width: 130px;
+  }
+}
+
+@media (max-width: 992px) {
+  .clients-wrap .client-logo img {
+    max-width: 110px;
+  }
+}
+
+@media (max-width: 768px) {
+  .clients-wrap .client-logo img {
+    max-width: 90px;
+  }
+}
+
+@media (max-width: 576px) {
+  .clients-wrap .client-logo img {
+    max-width: 70px;
+  }
+}
+
+#rnd-objectives {
+  background-color: var(--background-color);
+  color: var(--default-color);
+}
+
+#rnd-objectives .section-title {
+  font-family: var(--heading-font);
+  font-size: 2.5rem;
+  color: var(--heading-color);
+}
+
+#rnd-objectives .section-subtitle {
+  font-size: 1.125rem;
+  color: var(--default-color);
+}
+
+#rnd-objectives .card {
+  background-color: var(--surface-color);
+  color: var(--default-color);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+#rnd-objectives .card-title {
+  font-family: var(--heading-font);
+  font-size: 1.25rem;
+  color: var(--heading-color);
+}
+
+#rnd-objectives .card-text {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+#rnd-objectives .icon {
+  color: var(--accent-color);
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0.25rem;
+  width: 2px;
+  height: 100%;
+  background-color: #0f981b;
+}
+.hover-scale {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.hover-scale:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+/* Timeline vertical line */
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0.25rem;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(to bottom, #0f981b, #44d45a);
+}
+
+/* Timeline dots hover effect */
+.hover-timeline:hover .timeline-dot {
+  transform: scale(1.3);
+  transition: transform 0.3s;
+}
+
+.timeline-dot {
+  width: 1rem;
+  height: 1rem;
+  transition: transform 0.3s;
+}
+
+/* R&D Section Modern Styles */
+.hover-lift {
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+}
+.hover-lift:hover {
+  transform: translateY(-15px) !important;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15) !important;
+}
+
+.icon-circle {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #fff, #f8f9fa);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border: 3px solid rgba(255, 255, 255, 0.8);
+}
+
+.tab-btn {
+  transition: all 0.3s ease !important;
+  font-weight: 600 !important;
+  border: 2px solid transparent !important;
+}
+.tab-btn:hover,
+.tab-btn.active {
+  background: linear-gradient(
+    135deg,
+    #2d6a4f,
+    #52b788
+  ) !important; /* أخضر متدرج احترافي */
+  color: white !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 10px 25px rgba(45, 106, 79, 0.3) !important; /* ظل أخضر */
+}
+
+.feature-item {
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #f8f9ff, #e8f4f8);
+  border-radius: 1rem;
+  border-left: 4px solid #007bff;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-weight: 500;
+}
+.feature-item:hover {
+  background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+  transform: translateX(10px);
+  box-shadow: 0 10px 30px rgba(0, 123, 255, 0.2);
+}
+.feature-item i {
+  font-size: 1.5rem;
+  width: 40px;
+  text-align: center;
+}
+
+/* Timeline Modern */
+.roadmap-section {
+  position: relative;
+}
+.timeline-container {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.timeline-container::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(to bottom, #007bff, #28a745);
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+.timeline-item {
+  position: relative;
+  width: 50%;
+  margin-bottom: 3rem;
+  padding: 0 2rem;
+}
+.timeline-item:nth-child(odd) {
+  left: 0;
+}
+.timeline-item:nth-child(even) {
+  left: 50%;
+}
+.timeline-item:nth-child(even) .timeline-content::before {
+  right: -20px;
+  border-left-color: #007bff;
+}
+.timeline-icon {
+  position: absolute;
+  left: -30px;
+  top: 10px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.5rem;
+  z-index: 2;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+.timeline-item:nth-child(even) .timeline-icon {
+  left: auto;
+  right: -30px;
+}
+.timeline-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  position: relative;
+  backdrop-filter: blur(10px);
+}
+.timeline-content::before {
+  content: "";
+  position: absolute;
+  left: -20px;
+  top: 30px;
+  width: 0;
+  height: 0;
+  border: 12px solid transparent;
+  border-right-color: white;
+}
+.timeline-content h5 {
+  color: #007bff;
+  margin-bottom: 0.5rem;
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+  .timeline-container::before {
+    left: 30px;
+  }
+  .timeline-item {
+    width: 100% !important;
+    left: 0 !important;
+    margin-left: 4rem !important;
+  }
+  .timeline-item .timeline-icon {
+    left: 0 !important;
+    right: auto !important;
+  }
+  .timeline-content::before {
+    left: -20px !important;
+    border-right-color: transparent;
+    border-bottom-color: white;
+    border-left-color: transparent;
+    top: -12px;
+    transform: rotate(90deg);
+  }
+}
+
+.bg-gradient-success {
+  background: linear-gradient(135deg, #28a745, #20c997) !important;
+}
+.bg-gradient-primary {
+  background: linear-gradient(135deg, #007bff, #6610f2) !important;
+}
+.bg-gradient-warning {
+  background: linear-gradient(135deg, #ffc107, #fd7e14) !important;
+}
+/* تصغير حجم الخط للـ accordion button */
+#productsAccordion .accordion-button {
+  font-size: 1.1rem; /* أقل شوية من fs-4 */
+  padding: 1.2rem 1.5rem; /* تعديل padding ليكون متناسق */
+}
+
+/* Gradient للزر المفتوح بالأخضر */
+#productsAccordion .accordion-button:not(.collapsed) {
+  color: #fff; /* نص أبيض للقراءة */
+  background: linear-gradient(
+    135deg,
+    #2d6a4f,
+    #52b788
+  ); /* gradient أخضر جميل */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* subtle shadow */
+}
+
+/* أيقونات داخل الـ button تبقى واضحة مع الـ gradient */
+#productsAccordion .accordion-button:not(.collapsed) i {
+  color: #fff;
+}
+
+/* تحسين الـ accordion body text لو محتاج */
+#productsAccordion .accordion-body {
+  font-size: 0.95rem; /* حجم مناسب للنصوص */
+  line-height: 1.6;
+}
+
+/* إضافة transition سلس عند فتح وإغلاق */
+#productsAccordion .accordion-button {
+  transition: all 0.3s ease;
+}
+/* About Pro Section - Green Fixed - Responsive 480px */
+.about-pro-section {
+  background: linear-gradient(135deg, #f8fafc 0%, #e8f4f0 50%, #f0f9f4 100%);
+}
+
+/* Base Styles */
+.section-divider {
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent-color), #28a745);
+  border-radius: 2px;
+}
+
+.icon-pro {
+  color: var(--accent-color) !important;
+  font-size: 1.2rem !important;
+}
+.icon-pro-success {
+  color: var(--accent-color) !important;
+  font-size: 1.1rem !important;
+}
+.badge-pro {
+  background-color: var(--accent-color) !important;
+  color: white !important;
+  padding: 0.4em 0.8em !important;
+  border-radius: 20px !important;
+  font-size: 0.8rem !important;
+}
+.success-badge {
+  background-color: #28a745 !important;
+}
+.status-pro {
+  background: rgba(15, 152, 27, 0.1) !important;
+  color: var(--accent-color) !important;
+  padding: 0.3em 0.8em !important;
+  border-radius: 15px !important;
+  font-size: 0.85rem !important;
+}
+
+/* Accordion */
+.accordion-pro {
+  background: rgba(255, 255, 255, 0.97);
+  border-radius: 20px;
+  padding: 1.75rem;
+  border: 1px solid rgba(15, 152, 27, 0.15);
+  backdrop-filter: blur(10px);
+}
+
+.accordion-item-pro {
+  background: transparent !important;
+  border: none !important;
+  margin-bottom: 1.25rem !important;
+  border-radius: 16px !important;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(15, 152, 27, 0.08);
+}
+
+.accordion-button-pro {
+  font-size: 1.1rem !important;
+  font-weight: 600 !important;
+  padding: 1.25rem 1.75rem !important;
+  background: #fff !important;
+  border: none !important;
+  color: var(--heading-color) !important;
+  transition: all 0.3s ease !important;
+}
+
+.accordion-button-pro:not(.collapsed) {
+  background: linear-gradient(135deg, var(--accent-color), #0d8a17) !important;
+  color: white !important;
+  box-shadow: 0 10px 25px rgba(15, 152, 27, 0.3) !important;
+}
+
+.accordion-body-pro {
+  background: rgba(255, 255, 255, 0.8) !important;
+  border-top: 1px solid rgba(15, 152, 27, 0.15) !important;
+  padding: 1.5rem !important;
+}
+
+/* Content Classes */
+.title-pro {
+  font-size: 1.25rem !important;
+  color: var(--accent-color) !important;
+}
+.text-pro {
+  font-size: 0.95rem !important;
+  line-height: 1.6 !important;
+}
+.quote-pro {
+  font-size: 1rem !important;
+  color: var(--accent-color) !important;
+  font-style: italic;
+  margin-bottom: 0.5rem !important;
+}
+
+/* Vision Items */
+.vision-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.25rem;
+  background: rgba(15, 152, 27, 0.05);
+  border-radius: 12px;
+  border-left: 4px solid var(--accent-color);
+  margin-bottom: 1rem;
+}
+
+.vision-item i {
+  font-size: 1.3rem !important;
+  color: var(--accent-color) !important;
+  margin-top: 0.2rem;
+  flex-shrink: 0;
+}
+
+.vision-item h6 {
+  font-size: 1rem !important;
+  margin-bottom: 0.25rem !important;
+}
+
+/* Leadership */
+.leadership-card {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 16px;
+  padding: 1.75rem;
+  border-left: 5px solid var(--accent-color);
+  margin-bottom: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.leadership-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: rgba(15, 152, 27, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1rem;
+  flex-shrink: 0;
+  border: 2px solid rgba(15, 152, 27, 0.3);
+}
+
+.success-avatar {
+  background: rgba(40, 167, 69, 0.2);
+  border-color: rgba(40, 167, 69, 0.4);
+}
+
+.leadership-card h4 {
+  font-size: 1.2rem !important;
+  line-height: 1.3 !important;
+}
+
+/* Feature Items */
+.feature-item {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 10px;
+  border-left: 3px solid rgba(15, 152, 27, 0.3);
+  font-size: 0.92rem !important;
+  line-height: 1.4 !important;
+  transition: all 0.3s ease;
+  min-height: 65px;
+}
+
+.feature-item:hover {
+  background: rgba(15, 152, 27, 0.08);
+  transform: translateX(4px);
+}
+
+.feature-item i {
+  font-size: 1.1rem !important;
+  color: var(--accent-color) !important;
+  width: 24px;
+  text-align: center;
+  margin-right: 0.75rem;
+  flex-shrink: 0;
+}
+
+/* Quote */
+.blockquote-pro {
+  font-size: 1.1rem !important;
+  color: var(--default-color) !important;
+  font-style: italic;
+  padding: 2rem !important;
+  border-left: 5px solid var(--accent-color) !important;
+  background: rgba(15, 152, 27, 0.03);
+  border-radius: 12px;
+}
+
+/* Buttons */
+.btn-pro-sm {
+  background: transparent !important;
+  border: 2px solid var(--accent-color) !important;
+  color: var(--accent-color) !important;
+  padding: 0.5rem 1.25rem !important;
+  border-radius: 25px !important;
+  font-size: 0.9rem !important;
+  font-weight: 500 !important;
+  transition: all 0.3s ease !important;
+  margin-bottom: 0.5rem !important;
+}
+
+.btn-pro-sm:hover {
+  background: var(--accent-color) !important;
+  color: white !important;
+  transform: translateY(-2px) !important;
+}
+
+/* Image */
+.about-image-container {
+  height: 450px;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 4px solid rgba(15, 152, 27, 0.2);
+  position: relative;
+}
+
+.image-badge {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 10;
+}
+
+/* MOBILE PERFECT 480px */
+@media (max-width: 480px) {
+  .about-pro-section {
+    padding: 2.5rem 0.75rem !important;
+  }
+
+  .container {
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+  }
+
+  .h2 {
+    font-size: 1.75rem !important;
+  }
+
+  .accordion-pro {
+    padding: 1.25rem !important;
+    padding-left: 0.25rem !important;
+    padding-right: 0 !important;
+  }
+
+  .accordion-button-pro {
+    font-size: 1rem !important;
+    padding: 1rem 1.25rem !important;
+  }
+
+  .leadership-card {
+    padding: 1.25rem !important;
+  }
+  .leadership-avatar {
+    width: 52px !important;
+    height: 52px !important;
+  }
+
+  .feature-item {
+    font-size: 0.88rem !important;
+    padding: 0.875rem !important;
+    min-height: 60px !important;
+  }
+
+  .about-image-container {
+    height: 300px !important;
+  }
+
+  .vision-item {
+    padding: 1rem !important;
+  }
+  .blockquote-pro {
+    font-size: 1rem !important;
+    padding: 1.25rem !important;
+  }
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .about-image-container {
+    height: 380px !important;
+  }
+  .feature-item {
+    min-height: 62px !important;
+  }
+}
+
+/* Tabs Active - أخضر عصري */
+#rndTab .nav-link.active {
+  color: #fff; /* نص أبيض */
+  background: linear-gradient(135deg, #2d6a4f, #52b788); /* درجات أخضر هادئة */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* Tabs Inactive */
+#rndTab .nav-link {
+  color: #2d6a4f; /* أخضر غامق للنص */
+  background-color: #e6f2ef; /* خلفية فاتحة أخضر هادي */
+  transition: all 0.3s ease;
+}
+
+/* Hover على tabs */
+#rndTab .nav-link:hover {
+  color: #fff;
+  background: linear-gradient(135deg, #40916c, #74c69d);
+}
+
+/* nooooooooooooo */
+/* Variables */
+:root {
+  --primary-dark: #2d6a4f;
+  --primary-light: #52b788;
+}
+
+/* About Pro Section - Green Gradient */
+.about-pro-section {
+  background: linear-gradient(135deg, #f0f9f4 0%, #e8f4f0 50%, #f8fafc 100%);
+  color: var(--primary-dark);
+}
+
+/* Header */
+.about-pro-section h2 {
+  color: var(--primary-dark);
+  text-align: center;
+}
+.section-divider {
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-dark), var(--primary-light));
+  border-radius: 2px;
+  margin: 0 auto 1rem auto;
+}
+
+/* Accordion */
+.accordion-button-pro:not(.collapsed) {
+  background: linear-gradient(
+    135deg,
+    var(--primary-dark),
+    var(--primary-light)
+  ) !important;
+  color: white !important;
+  box-shadow: 0 10px 25px rgba(45, 106, 79, 0.3) !important;
+  text-align: left;
+}
+
+.accordion-button-pro {
+  text-align: left;
+  color: var(--primary-dark);
+}
+
+/* Icons */
+.icon-pro,
+.icon-pro-success {
+  color: var(--primary-dark) !important;
+}
+
+/* Badges */
+.badge-pro,
+.success-badge {
+  background: linear-gradient(
+    135deg,
+    var(--primary-dark),
+    var(--primary-light)
+  ) !important;
+  color: white !important;
+}
+
+/* Feature Items */
+.feature-item {
+  border-left: 3px solid var(--primary-dark);
+}
+.feature-item i {
+  color: var(--primary-dark) !important;
+}
+
+/* Vision Items */
+.vision-item {
+  border-left: 4px solid var(--primary-dark);
+  background: rgba(45, 106, 79, 0.05);
+}
+.vision-item i {
+  color: var(--primary-dark);
+}
+
+/* Leadership Cards */
+.leadership-card {
+  border-left: 5px solid var(--primary-dark);
+}
+
+/* Blockquote */
+.blockquote-pro {
+  border-left: 5px solid var(--primary-dark) !important;
+  background: rgba(45, 106, 79, 0.03);
+  color: var(--primary-dark);
+  text-align: left;
+}
+
+/* Buttons */
+.btn-pro-sm {
+  border: 2px solid var(--primary-dark) !important;
+  color: var(--primary-dark) !important;
+}
+.btn-pro-sm:hover {
+  background: linear-gradient(
+    135deg,
+    var(--primary-dark),
+    var(--primary-light)
+  );
+  color: white !important;
+}
+
+/* Image Border */
+.about-image-container {
+  border: 4px solid rgba(45, 106, 79, 0.2);
+}
+
+/* Align Text Left */
+.about-pro-section p,
+.about-pro-section h5,
+.about-pro-section h6,
+.about-pro-section .quote-pro {
+  text-align: left;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .accordion-button-pro {
+    font-size: 1rem !important;
+  }
+  .feature-item {
+    font-size: 0.9rem !important;
+  }
+}
+
+@media (max-width: 500px) {
+  .accordion-body-pro {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    padding-top: 1rem !important; /* لو عايز تحافظ على padding فوق */
+    padding-bottom: 1rem !important; /* لو عايز تحافظ على padding تحت */
+  }
+}
+
+@media (max-width: 500px) {
+  .row > * {
+    padding-left: 0 !important; /* إزالة البادينج من الشمال */
+    /* padding-right: 0 !important;  إذا عايز تشيل اليمين كمان */
+  }
+}
+
+/* اللون الافتراضي للأيقونات */
+.accordion-button-pro i {
+  color: var(--accent-color); /* الأخضر */
+  transition: color 0.3s ease;
+}
+
+/* لما الـ accordion مفتوح (active) */
+.accordion-button-pro:not(.collapsed) i {
+  color: white; /* يتحول للون أبيض */
+}
+.accordion-button-pro:not(.collapsed) .icon-pro {
+  color: #fff !important;
+  transform: scale(1.15);
+}
+
+.about-image-sticky {
+  position: sticky;
+  top: 100px; /* حسب الهيدر */
+}
+
+.about-image-sticky img {
+  width: 100%;
+  border-radius: 20px;
+}
+@media (min-width: 992px) {
+  .about-image-sticky {
+    position: sticky;
+    top: 120px; /* تحت الهيدر */
+    align-self: flex-start;
+  }
+}
+
+@media (max-width: 991px) {
+  .about-image-sticky {
+    position: static;
+    margin-bottom: 2rem;
+  }
+}
+@media (min-width: 992px) {
+  .row.align-items-start {
+    align-items: stretch !important;
+  }
+
+  .about-image-container {
+    height: 100%;
+  }
+
+  .about-image-container img {
+    height: 100%;
+    object-fit: cover;
+  }
+}

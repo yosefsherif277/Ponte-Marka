@@ -322,15 +322,19 @@
         "title": "Technical Components",
         "features": {
           "feature1": {
+            "icon": "bi-geo-alt-fill text-primary",
             "desc": "Farm Mapping: GPS & EUDR compliance"
           },
           "feature2": {
+            "icon": "bi-qr-code-scan text-primary",
             "desc": "Dynamic QR: Immutable harvest data"
           },
           "feature3": {
+            "icon": "bi-file-earmark-text text-primary",
             "desc": "Smart Contracts: Instant farmer payments"
           },
           "feature4": {
+            "icon": "bi-cpu text-primary",
             "desc": "AI Integration: Shelf-life prediction"
           }
         }

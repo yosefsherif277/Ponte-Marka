@@ -3475,3 +3475,93 @@ html[dir="rtl"] #rnd-bootstrap .card-body.d-flex {
 html[dir="rtl"] #rnd-bootstrap .tab-btn {
   justify-content: flex-end;
 }
+.text-center {
+  text-align: center; /* يحافظ على كل النصوص في الوسط */
+  direction: inherit; /* يخلي اتجاه النص يتبع اللغة الحالية */
+}
+
+.text-center > * {
+  display: block; /* كل عنصر يأخذ سطر كامل */
+  margin-left: auto;
+  margin-right: auto; /* يضمن تمركز العناصر في الوسط */
+}
+.text-center {
+  display: flex;
+  flex-direction: column; /* يحط العناصر فوق بعض */
+  justify-content: center; /* يتمركز عموديًا لو فيه ارتفاع */
+  align-items: center; /* يتمركز أفقياً */
+  text-align: center; /* يبقي النص داخل كل عنصر في الوسط */
+  direction: inherit; /* يتبع اتجاه اللغة */
+}
+
+/* المرحلة 2 تتحرك للشمال فقط في RTL */
+html[dir="rtl"] .timeline-item:nth-child(2) {
+  justify-content: flex-start; /* تحريك المحتوى للشمال */
+  text-align: left; /* النص على الشمال */
+  flex-direction: row !important; /* أيقونة على اليمين والنص على اليسار */
+}
+
+/* باقي الحالات (LTR) تبقى طبيعية */
+html[dir="ltr"] .timeline-item:nth-child(2) {
+  justify-content: flex-end; /* تحريك المحتوى لليمين */
+  text-align: left;
+  flex-direction: row-reverse !important; /* أيقونة على اليسار والنص على اليمين */
+}
+/* Timeline container: arrange vertically */
+.timeline-container {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 2rem !important;
+}
+
+/* كل Timeline item */
+.timeline-item {
+  display: flex !important;
+  align-items: center !important;
+  gap: 1rem !important;
+}
+
+/* المرحلة 2 تتحرك للشمال فقط في RTL */
+html[dir="rtl"] .timeline-item:nth-child(2) {
+  flex-direction: row !important; /* أيقونة على اليمين، نص على اليسار */
+  justify-content: flex-start !important; /* يدفع المحتوى للشمال */
+  text-align: left !important; /* النص على الشمال */
+  margin-left: 0 !important; /* إزالة أي مسافات من الشمال */
+  margin-right: auto !important;
+}
+
+/* المرحلة 2 تتحرك لليمين فقط في LTR */
+html[dir="ltr"] .timeline-item:nth-child(2) {
+  flex-direction: row-reverse !important; /* أيقونة على اليسار، نص على اليمين */
+  justify-content: flex-end !important; /* يدفع المحتوى لليمين */
+  text-align: left !important;
+  margin-right: 0 !important;
+  margin-left: auto !important;
+}
+
+/* باقي المراحل 1 و3 */
+html[dir="rtl"] .timeline-item:nth-child(1),
+html[dir="rtl"] .timeline-item:nth-child(3) {
+  flex-direction: row !important;
+  justify-content: flex-start !important;
+  text-align: right !important;
+}
+
+html[dir="ltr"] .timeline-item:nth-child(1),
+html[dir="ltr"] .timeline-item:nth-child(3) {
+  flex-direction: row-reverse !important;
+  justify-content: flex-end !important;
+  text-align: left !important;
+}
+
+/* الأيقونات ثابتة */
+.timeline-item .timeline-icon {
+  flex-shrink: 0 !important;
+}
+
+html[dir="rtl"] .timeline-item:nth-child(2) {
+  flex-direction: row !important;
+  justify-content: flex-start !important;
+  text-align: left !important;
+  transform: translateX(-500px) !important; /* تحريك أكثر للشمال */
+}

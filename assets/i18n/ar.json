@@ -286,6 +286,7 @@
     }
   },
   "rnd": {
+    "timelineTitle": "خارطة الطريق وآفاق المستقبل",
     "badge": "تميز البحث والتطوير",
     "mainTitle": "البحث والابتكار",
     "mainDesc": "تحويل الأعمال، قيادة قطاع Ho.Re.Ca، الحوكمة الرقمية لسلاسل التوريد الأخلاقية.",
@@ -322,15 +323,19 @@
         "title": "المكونات التقنية",
         "features": {
           "feature1": {
+            "icon": "bi-geo-alt-fill text-primary",
             "desc": "رسم الخرائط الزراعية: GPS والامتثال للـ EUDR"
           },
           "feature2": {
+            "icon": "bi-qr-code-scan text-primary",
             "desc": "رمز QR ديناميكي: بيانات الحصاد غير قابلة للتغيير"
           },
           "feature3": {
+            "icon": "bi-file-earmark-text text-primary",
             "desc": "العقود الذكية: مدفوعات فورية للمزارعين"
           },
           "feature4": {
+            "icon": "bi-cpu text-primary",
             "desc": "دمج الذكاء الاصطناعي: توقع مدة الصلاحية"
           }
         }

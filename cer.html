@@ -5,509 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ponte Marka - Certificates & Gallery</title>
 
+    <!-- Bootstrap -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
+
+    <!-- Font Awesome -->
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
       rel="stylesheet"
     />
 
-    <style>
-      :root {
-        --dark-green: #0d2818;
-        --dark-green-darker: #0a1f13;
-        --gold: #d4af37;
-        --gold-light: #f1e0b5;
-        --light-green: #28a745;
-        --emerald: #10b981;
-        --glass-bg: rgba(255, 255, 255, 0.05);
-        --glass-border: rgba(255, 255, 255, 0.1);
-        --text-light: #f8fafc;
-        --text-muted: #cbd5e1;
-        --shadow-gold: rgba(212, 175, 55, 0.4);
-        --shadow-emerald: rgba(16, 185, 129, 0.3);
-      }
-
-      * {
-        box-sizing: border-box;
-      }
-
-      body {
-        font-family:
-          "Inter",
-          -apple-system,
-          BlinkMacSystemFont,
-          "Segoe UI",
-          sans-serif;
-        background: linear-gradient(
-          135deg,
-          var(--dark-green) 0%,
-          var(--dark-green-darker) 100%
-        );
-        color: var(--text-light);
-        margin: 0;
-        min-height: 100vh;
-        overflow-x: hidden;
-      }
-
-      /* Loading Screen */
-      .loading-screen {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: var(--dark-green);
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        z-index: 9999;
-        transition: opacity 0.5s ease;
-      }
-
-      .loading-screen.hidden {
-        opacity: 0;
-        pointer-events: none;
-      }
-
-      .logo-spin {
-        font-size: 4rem;
-        color: var(--gold);
-        animation: spin 2s linear infinite;
-      }
-
-      @keyframes spin {
-        100% {
-          transform: rotate(360deg);
-        }
-      }
-
-      /* Particles */
-      .particles {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        pointer-events: none;
-        z-index: 1;
-      }
-
-      .particle {
-        position: absolute;
-        width: 3px;
-        height: 3px;
-        background: var(--gold);
-        border-radius: 50%;
-        animation: float 25s infinite linear;
-        opacity: 0.7;
-      }
-
-      @keyframes float {
-        0% {
-          transform: translateY(100vh) scale(0);
-          opacity: 0;
-        }
-        10% {
-          opacity: 1;
-        }
-        90% {
-          opacity: 1;
-        }
-        100% {
-          transform: translateY(-100px) scale(1);
-          opacity: 0;
-        }
-      }
-
-      /* Top Bar */
-      .top-bar {
-        position: fixed;
-        top: 20px;
-        left: 20px;
-        right: 20px;
-        backdrop-filter: blur(25px);
-        background: var(--glass-bg);
-        border: 1px solid var(--glass-border);
-        border-radius: 20px;
-        padding: 16px 24px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        z-index: 1000;
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-        transition: all 0.4s ease;
-      }
-
-      .top-bar.hidden {
-        transform: translateY(-100px);
-        opacity: 0;
-      }
-
-      .btn-nav {
-        padding: 12px 24px;
-        font-weight: 600;
-        border: none;
-        border-radius: 14px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        backdrop-filter: blur(10px);
-        font-size: 0.95rem;
-      }
-
-      .back-btn {
-        background: linear-gradient(135deg, var(--gold), var(--gold-light));
-        color: var(--dark-green);
-        box-shadow: 0 8px 25px var(--shadow-gold);
-      }
-
-      .back-btn:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 12px 30px var(--shadow-gold);
-      }
-
-      .toggle-btn {
-        background: linear-gradient(135deg, var(--emerald), var(--light-green));
-        color: white;
-        box-shadow: 0 8px 25px var(--shadow-emerald);
-      }
-
-      .toggle-btn.active {
-        background: linear-gradient(135deg, var(--gold), var(--gold-light));
-        color: var(--dark-green);
-        box-shadow: 0 8px 25px var(--shadow-gold);
-      }
-
-      .toggle-btn:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 12px 30px var(--shadow-emerald);
-      }
-
-      .lang-select {
-        min-width: 160px;
-        background: var(--glass-bg);
-        border: 1px solid var(--glass-border);
-        border-radius: 12px;
-        color: var(--text-light);
-        backdrop-filter: blur(10px);
-        padding: 10px 14px;
-      }
-
-      /* Main Content */
-      .main-content {
-        padding-top: 120px;
-        padding-bottom: 60px;
-        position: relative;
-        z-index: 10;
-        min-height: 100vh;
-      }
-
-      .section {
-        display: none;
-        opacity: 0;
-        transform: translateY(30px);
-        transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      }
-
-      .section.active {
-        display: block;
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-      /* Certificates Section */
-      .cert-hero {
-        max-width: 1400px;
-        margin: 0 auto;
-        padding: 60px 20px;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 60px;
-        align-items: center;
-        min-height: calc(100vh - 140px);
-      }
-
-      .hero-text {
-        text-align: center;
-      }
-
-      .hero-title {
-        font-size: clamp(2.2rem, 5vw, 3.5rem);
-        font-weight: 800;
-        background: linear-gradient(135deg, var(--gold), var(--light-green));
-        -webkit-background-clip: text;
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
-        margin-bottom: 24px;
-      }
-
-      .hero-divider {
-        width: 80px;
-        height: 4px;
-        background: linear-gradient(90deg, var(--light-green), var(--gold));
-        border-radius: 2px;
-        margin: 0 auto 28px;
-        box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
-      }
-
-      .hero-desc {
-        font-size: 1.2rem;
-        line-height: 1.8;
-        color: var(--text-muted);
-        max-width: 480px;
-        margin: 0 auto;
-      }
-
-      .collage-wrapper {
-        position: relative;
-        display: flex;
-        justify-content: center;
-      }
-
-      .collage {
-        width: 100%;
-        max-width: 650px;
-        height: 450px;
-        background: var(--glass-bg);
-        backdrop-filter: blur(20px);
-        border: 1px solid var(--glass-border);
-        border-radius: 24px;
-        padding: 35px;
-        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
-        position: relative;
-        overflow: hidden;
-      }
-
-      .cert {
-        position: absolute;
-        width: 120px;
-        height: 160px;
-        background: white;
-        border-radius: 16px;
-        padding: 10px;
-        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-        cursor: pointer;
-        transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        border: 2px solid transparent;
-      }
-
-      .cert img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-        border-radius: 12px;
-      }
-
-      .cert:hover {
-        transform: scale(1.2) rotate(0deg);
-        z-index: 20;
-        box-shadow: 0 30px 60px rgba(16, 185, 129, 0.4);
-        border-color: var(--emerald);
-      }
-
-      /* Gallery Section */
-      .gallery-container {
-        max-width: 1400px;
-        margin: 0 auto;
-        padding: 80px 20px;
-      }
-
-      .gallery-header {
-        text-align: center;
-        margin-bottom: 80px;
-      }
-
-      .gallery-title {
-        font-size: clamp(2.8rem, 6vw, 4.5rem);
-        font-weight: 800;
-        background: linear-gradient(135deg, var(--gold), var(--gold-light));
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        margin-bottom: 20px;
-      }
-
-      .gallery-subtitle {
-        font-size: 1.3rem;
-        color: var(--text-muted);
-      }
-
-      .event {
-        margin-bottom: 100px;
-      }
-
-      .event-header {
-        text-align: center;
-        margin-bottom: 50px;
-      }
-
-      .event-title {
-        font-size: clamp(1.8rem, 3vw, 2.5rem);
-        font-weight: 800;
-        color: var(--text-light);
-        margin-bottom: 16px;
-      }
-
-      .event-date {
-        color: var(--light-green);
-        font-size: 1.2rem;
-        font-weight: 600;
-        background: var(--glass-bg);
-        padding: 10px 20px;
-        border-radius: 25px;
-        display: inline-block;
-        backdrop-filter: blur(10px);
-      }
-
-      .gallery-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 2rem;
-      }
-
-      .gallery-item {
-        position: relative;
-        border-radius: 20px;
-        overflow: hidden;
-        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
-        transition: all 0.4s ease;
-        cursor: pointer;
-        height: 280px;
-      }
-
-      .gallery-item img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: transform 0.5s ease;
-      }
-
-      .gallery-item:hover {
-        transform: translateY(-12px);
-        box-shadow: 0 35px 70px rgba(16, 185, 129, 0.3);
-      }
-
-      .gallery-item:hover img {
-        transform: scale(1.1);
-      }
-
-      /* Modals */
-      .modal-content {
-        background: rgba(13, 40, 24, 0.98);
-        backdrop-filter: blur(30px);
-        border: 1px solid var(--glass-border);
-        border-radius: 20px;
-      }
-
-      .modal-img {
-        width: 100%;
-        height: 100vh;
-        object-fit: contain;
-      }
-
-      .modal-nav {
-        position: absolute;
-        top: 50%;
-        width: 70px;
-        height: 70px;
-        background: var(--glass-bg);
-        backdrop-filter: blur(20px);
-        border: 1px solid var(--glass-border);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.8rem;
-        color: white;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        z-index: 10;
-      }
-
-      .modal-prev {
-        left: 40px;
-        transform: translateY(-50%);
-      }
-      .modal-next {
-        right: 40px;
-        transform: translateY(-50%);
-      }
-
-      .modal-nav:hover {
-        background: var(--emerald);
-        transform: translateY(-50%) scale(1.1);
-      }
-
-      .modal-counter {
-        position: absolute;
-        bottom: 50px;
-        left: 50%;
-        transform: translateX(-50%);
-        background: var(--glass-bg);
-        backdrop-filter: blur(20px);
-        padding: 16px 32px;
-        border-radius: 30px;
-        font-size: 1.5rem;
-        font-weight: 700;
-        border: 1px solid var(--glass-border);
-      }
-
-      /* Responsive */
-      @media (max-width: 992px) {
-        .cert-hero {
-          grid-template-columns: 1fr;
-          gap: 40px;
-          padding: 40px 20px;
-        }
-
-        .collage {
-          max-width: 90vw;
-          height: 400px;
-        }
-
-        .gallery-grid {
-          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-          gap: 1.5rem;
-        }
-      }
-
-      @media (max-width: 768px) {
-        .top-bar {
-          flex-direction: column;
-          gap: 12px;
-          padding: 20px !important;
-        }
-
-        .main-content {
-          padding-top: 160px;
-        }
-
-        .cert {
-          width: 95px;
-          height: 125px;
-        }
-
-        .gallery-grid {
-          grid-template-columns: repeat(2, 1fr);
-          gap: 1.2rem;
-        }
-
-        .gallery-item {
-          height: 240px;
-        }
-      }
-
-      @media (max-width: 480px) {
-        .gallery-grid {
-          grid-template-columns: 1fr;
-        }
-      }
-    </style>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/cer.css" />
   </head>
 
   <body>
@@ -519,57 +30,41 @@
       <p style="margin-top: 20px; color: var(--gold)">جاري التحميل...</p>
     </div>
 
-    <!-- Particles -->
+    <!-- Background Particles -->
     <div class="particles" id="particles"></div>
 
     <!-- Top Bar -->
     <nav class="top-bar" id="topBar">
-      <button class="back-btn btn-nav" id="backBtn" onclick="history.back()">
+      <button class="back-btn btn-nav" onclick="history.back()">
         <i class="fas fa-arrow-left"></i>
-        <span id="backText">رجوع</span>
+        رجوع
       </button>
 
       <div style="display: flex; gap: 12px">
         <button class="toggle-btn btn-nav active" id="certToggle">
-          <i class="fas fa-award"></i>
-          <span id="certBtnText">شهادات</span>
+          <i class="fas fa-award"></i> شهادات
         </button>
         <button class="toggle-btn btn-nav" id="galleryToggle">
-          <i class="fas fa-images"></i>
-          <span id="galleryBtnText">معرض</span>
+          <i class="fas fa-images"></i> معرض
         </button>
       </div>
-
-      <select class="lang-select form-select" id="langSelect">
-        <option value="ar" selected>🇸🇦 العربية</option>
-        <option value="en">🇬🇧 English</option>
-        <option value="it">🇮🇹 Italiano</option>
-      </select>
     </nav>
 
     <!-- Main Content -->
     <main class="main-content">
-      <!-- Certificates Section (VISIBLE BY DEFAULT) -->
+      <!-- Certificates Section -->
       <section id="certSection" class="section active">
         <div class="cert-hero">
           <div class="hero-text">
-            <h1 class="hero-title" id="certTitle">
-              شهاداتنا واعتماداتنا المهنية
-            </h1>
+            <h1 class="hero-title">شهاداتنا واعتماداتنا المهنية</h1>
             <div class="hero-divider"></div>
-            <p class="hero-desc" id="certDesc">
-              نعتز بخبرة فريقنا وحرصه المستمر على التطوير والتعلّم.تعكس الشهادات
-              المعروضة هنا التزامنا بالمعايير الدولية والتميّز المهني وبناء
-              الخبرات المعتمدة.تمثل كل شهادة مهارات موثوقة، ومعرفة متخصصة، وخبرة
-              عملية حقيقية، تمكّننا من تقديم حلول عالية الجودة وموثوقة تلبي
-              تطلعات عملائنا.مؤهلات فريقنا هي أساس الثقة والمصداقية والاستمرارية
-              في الأداء عبر جميع مشاريعنا.
+            <p class="hero-desc">
+              نعتز بخبرة فريقنا وحرصه المستمر على التطوير والتعلّم.
             </p>
           </div>
+
           <div class="collage-wrapper">
-            <div class="collage" id="collage">
-              <!-- Certificates will be generated here -->
-            </div>
+            <div class="collage" id="collage"></div>
           </div>
         </div>
       </section>
@@ -585,72 +80,40 @@
           <!-- Event 1 -->
           <div class="event">
             <div class="event-header">
-              <h2 class="event-title">Ponte Marka @ Grüne Woche</h2>
-              <p class="event-date">Berlin, Germany | 16-25 January 2026</p>
+              <h2 class="event-title">Ponte Marka @ SIGEP World</h2>
+              <p class="event-date">Rimini, Italia | 16–20 Gennaio 2026</p>
             </div>
-            <div class="gallery-grid" data-gallery="grune-woche">
+
+            <div class="gallery-grid">
               <div class="gallery-item">
-                <img
-                  src="images/photos_berlin/2.webp"
-                  alt="Grüne Woche 1"
-                  loading="lazy"
-                />
+                <img src="images/SIGEP-photos/1.webp" loading="lazy" />
               </div>
               <div class="gallery-item">
-                <img
-                  src="images/photos_berlin/3.webp"
-                  alt="Grüne Woche 2"
-                  loading="lazy"
-                />
+                <img src="images/SIGEP-photos/2.webp" loading="lazy" />
               </div>
               <div class="gallery-item">
-                <img
-                  src="images/photos_berlin/4.webp"
-                  alt="Grüne Woche 3"
-                  loading="lazy"
-                />
+                <img src="images/SIGEP-photos/3.webp" loading="lazy" />
               </div>
               <div class="gallery-item">
-                <img
-                  src="images/photos_berlin/5.webp"
-                  alt="Grüne Woche 4"
-                  loading="lazy"
-                />
+                <img src="images/SIGEP-photos/4.webp" loading="lazy" />
               </div>
               <div class="gallery-item">
-                <img
-                  src="images/photos_berlin/6.webp"
-                  alt="Grüne Woche 5"
-                  loading="lazy"
-                />
+                <img src="images/SIGEP-photos/5.webp" loading="lazy" />
               </div>
               <div class="gallery-item">
-                <img
-                  src="images/photos_berlin/7.webp"
-                  alt="Grüne Woche 6"
-                  loading="lazy"
-                />
+                <img src="images/SIGEP-photos/6.webp" loading="lazy" />
               </div>
               <div class="gallery-item">
-                <img
-                  src="images/photos_berlin/8.webp"
-                  alt="Grüne Woche 7"
-                  loading="lazy"
-                />
+                <img src="images/SIGEP-photos/7.webp" loading="lazy" />
               </div>
               <div class="gallery-item">
-                <img
-                  src="images/photos_berlin/9.webp"
-                  alt="Grüne Woche 8"
-                  loading="lazy"
-                />
+                <img src="images/SIGEP-photos/8.webp" loading="lazy" />
               </div>
               <div class="gallery-item">
-                <img
-                  src="images/photos_berlin/10.webp"
-                  alt="Grüne Woche 9"
-                  loading="lazy"
-                />
+                <img src="images/SIGEP-photos/9.webp" loading="lazy" />
+              </div>
+              <div class="gallery-item">
+                <img src="images/SIGEP-photos/10.webp" loading="lazy" />
               </div>
             </div>
           </div>
@@ -658,72 +121,75 @@
           <!-- Event 2 -->
           <div class="event">
             <div class="event-header">
-              <h2 class="event-title">Ponte Marka @ Marca by BolognaFiere</h2>
-              <p class="event-date">Bologna, Italy | 14-15 January 2026</p>
+              <h2 class="event-title">Ponte Marka @ Grüne Woche</h2>
+              <p class="event-date">Berlin, Germany | 16–25 January 2026</p>
             </div>
-            <div class="gallery-grid" data-gallery="bologna">
+
+            <div class="gallery-grid">
               <div class="gallery-item">
-                <img
-                  src="images/photos_bongolia/1.webp"
-                  alt="Bologna 1"
-                  loading="lazy"
-                />
+                <img src="images/photos_berlin/2.webp" loading="lazy" />
               </div>
               <div class="gallery-item">
-                <img
-                  src="images/photos_bongolia/2.webp"
-                  alt="Bologna 2"
-                  loading="lazy"
-                />
+                <img src="images/photos_berlin/3.webp" loading="lazy" />
               </div>
               <div class="gallery-item">
-                <img
-                  src="images/photos_bongolia/3.webp"
-                  alt="Bologna 3"
-                  loading="lazy"
-                />
+                <img src="images/photos_berlin/4.webp" loading="lazy" />
               </div>
               <div class="gallery-item">
-                <img
-                  src="images/photos_bongolia/4.webp"
-                  alt="Bologna 4"
-                  loading="lazy"
-                />
+                <img src="images/photos_berlin/5.webp" loading="lazy" />
               </div>
               <div class="gallery-item">
-                <img
-                  src="images/photos_bongolia/5.webp"
-                  alt="Bologna 5"
-                  loading="lazy"
-                />
+                <img src="images/photos_berlin/6.webp" loading="lazy" />
               </div>
               <div class="gallery-item">
-                <img
-                  src="images/photos_bongolia/7.webp"
-                  alt="Bologna 6"
-                  loading="lazy"
-                />
+                <img src="images/photos_berlin/7.webp" loading="lazy" />
               </div>
               <div class="gallery-item">
-                <img
-                  src="images/photos_bongolia/8.webp"
-                  alt="Bologna 7"
-                  loading="lazy"
-                />
+                <img src="images/photos_berlin/8.webp" loading="lazy" />
               </div>
               <div class="gallery-item">
-                <img
-                  src="images/photos_bongolia/9.webp"
-                  alt="Bologna 8"
-                  loading="lazy"
-                />
+                <img src="images/photos_berlin/9.webp" loading="lazy" />
               </div>
               <div class="gallery-item">
-                <img
-                  src="images/photos_bongolia/10.webp"
-                  alt="Bologna 9"
-                  loading="lazy"
-                />
+                <img src="images/photos_berlin/10.webp" loading="lazy" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Event 3 -->
+          <div class="event">
+            <div class="event-header">
+              <h2 class="event-title">Ponte Marka @ Marca by BolognaFiere</h2>
+              <p class="event-date">Bologna, Italy | 14–15 January 2026</p>
+            </div>
+
+            <div class="gallery-grid">
+              <div class="gallery-item">
+                <img src="images/photos_bongolia/1.webp" loading="lazy" />
+              </div>
+              <div class="gallery-item">
+                <img src="images/photos_bongolia/2.webp" loading="lazy" />
+              </div>
+              <div class="gallery-item">
+                <img src="images/photos_bongolia/3.webp" loading="lazy" />
+              </div>
+              <div class="gallery-item">
+                <img src="images/photos_bongolia/4.webp" loading="lazy" />
+              </div>
+              <div class="gallery-item">
+                <img src="images/photos_bongolia/5.webp" loading="lazy" />
+              </div>
+              <div class="gallery-item">
+                <img src="images/photos_bongolia/7.webp" loading="lazy" />
+              </div>
+              <div class="gallery-item">
+                <img src="images/photos_bongolia/8.webp" loading="lazy" />
+              </div>
+              <div class="gallery-item">
+                <img src="images/photos_bongolia/9.webp" loading="lazy" />
+              </div>
+              <div class="gallery-item">
+                <img src="images/photos_bongolia/10.webp" loading="lazy" />
               </div>
             </div>
           </div>
@@ -731,311 +197,8 @@
       </section>
     </main>
 
-    <!-- Certificates Modal -->
-    <div class="modal fade" id="certModal" tabindex="-1">
-      <div class="modal-dialog modal-fullscreen">
-        <div class="modal-content">
-          <div class="modal-body p-0 position-relative">
-            <button
-              class="btn-close btn-close-white position-absolute top-0 end-0 m-4 p-3 fs-4 rounded-circle"
-              data-bs-dismiss="modal"
-              style="
-                background: rgba(220, 53, 69, 0.8);
-                border: none;
-                z-index: 20;
-              "
-            ></button>
-
-            <button class="modal-nav modal-prev" onclick="certPrevImage()">
-              <i class="fas fa-chevron-left"></i>
-            </button>
-
-            <img
-              id="certModalImage"
-              class="modal-img"
-              src=""
-              alt="Certificate"
-            />
-
-            <button class="modal-nav modal-next" onclick="certNextImage()">
-              <i class="fas fa-chevron-right"></i>
-            </button>
-
-            <div class="modal-counter" id="certCounter">1 / 50</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Gallery Modal -->
-    <div class="modal fade" id="galleryModal" tabindex="-1">
-      <div class="modal-dialog modal-fullscreen">
-        <div class="modal-content">
-          <div class="modal-body p-0 position-relative">
-            <button
-              class="btn-close btn-close-white position-absolute top-0 end-0 m-4 p-3 fs-4 rounded-circle"
-              data-bs-dismiss="modal"
-              style="
-                background: rgba(220, 53, 69, 0.8);
-                border: none;
-                z-index: 20;
-              "
-            ></button>
-
-            <button class="modal-nav modal-prev" onclick="galleryPrevImage()">
-              <i class="fas fa-chevron-left"></i>
-            </button>
-
-            <img
-              id="galleryModalImage"
-              class="modal-img"
-              src=""
-              alt="Gallery Image"
-            />
-
-            <button class="modal-nav modal-next" onclick="galleryNextImage()">
-              <i class="fas fa-chevron-right"></i>
-            </button>
-
-            <div class="modal-counter" id="galleryCounter">1 / 9</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
+    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-    <script>
-      // Global State
-      let certImages = [];
-      let currentCertIndex = 0;
-      let galleryImages = [];
-      let currentGalleryIndex = 0;
-      let currentLang = "ar";
-
-      // DOM Elements
-      const dom = {
-        loading: document.getElementById("loadingScreen"),
-        topBar: document.getElementById("topBar"),
-        collage: document.getElementById("collage"),
-        certSection: document.getElementById("certSection"),
-        gallerySection: document.getElementById("gallerySection"),
-        certToggle: document.getElementById("certToggle"),
-        galleryToggle: document.getElementById("galleryToggle"),
-        langSelect: document.getElementById("langSelect"),
-        certModalImage: document.getElementById("certModalImage"),
-        galleryModalImage: document.getElementById("galleryModalImage"),
-        certCounter: document.getElementById("certCounter"),
-        galleryCounter: document.getElementById("galleryCounter"),
-      };
-
-      // Language Data (LOCAL - NO FETCH)
-      const languages = {
-        ar: {
-          back: "رجوع",
-          certTitle: "شهاداتنا",
-          certDesc: "تعرف على شهاداتنا وإنجازاتنا من خلال معرض الصور التفاعلي.",
-          certBtn: "شهادات",
-          galleryBtn: "معرض",
-        },
-        en: {
-          back: "Back",
-          certTitle: "Certificates",
-          certDesc:
-            "Discover our certificates and achievements through the interactive photo gallery.",
-          certBtn: "Certificates",
-          galleryBtn: "Gallery",
-        },
-        it: {
-          back: "Indietro",
-          certTitle: "Certificati",
-          certDesc:
-            "Scopri i nostri certificati e successi attraverso la galleria fotografica interattiva.",
-          certBtn: "Certificati",
-          galleryBtn: "Galleria",
-        },
-      };
-
-      // ================= INIT FUNCTIONS =================
-      function initLanguage() {
-        const langData = languages[currentLang];
-        document.getElementById("backText").textContent = langData.back;
-        document.getElementById("certTitle").textContent = langData.certTitle;
-        document.getElementById("certDesc").textContent = langData.certDesc;
-        document.getElementById("certBtnText").textContent = langData.certBtn;
-        document.getElementById("galleryBtnText").textContent =
-          langData.galleryBtn;
-
-        document.documentElement.dir = currentLang === "ar" ? "rtl" : "ltr";
-        document.documentElement.lang = currentLang;
-      }
-
-      function createParticles() {
-        const container = document.getElementById("particles");
-        for (let i = 0; i < 40; i++) {
-          const particle = document.createElement("div");
-          particle.className = "particle";
-          particle.style.left = Math.random() * 100 + "%";
-          particle.style.animationDelay = Math.random() * 20 + "s";
-          particle.style.animationDuration = 15 + Math.random() * 10 + "s";
-          container.appendChild(particle);
-        }
-      }
-
-      function buildCollage() {
-        dom.collage.innerHTML = "";
-
-        const rect = dom.collage.getBoundingClientRect();
-        const maxW = rect.width - 120;
-        const maxH = rect.height - 120;
-
-        certImages = [];
-        for (let i = 1; i <= 50; i++) {
-          certImages.push({
-            thumb: `images-small/cert${i}.webp`,
-            full: `images-full/cert${i}.jpg`,
-            x: Math.random() * maxW,
-            y: Math.random() * maxH,
-            rotate: (Math.random() - 0.5) * 20,
-          });
-        }
-
-        certImages.forEach((img, index) => {
-          const cert = document.createElement("div");
-          cert.className = "cert";
-          cert.style.left = img.x + "px";
-          cert.style.top = img.y + "px";
-          cert.style.transform = `rotate(${img.rotate}deg)`;
-          cert.innerHTML = `<img src="${img.thumb}" alt="Certificate ${
-            index + 1
-          }" loading="lazy">`;
-          cert.onclick = () => openCertModal(index);
-          dom.collage.appendChild(cert);
-        });
-      }
-
-      // ================= EVENT HANDLERS =================
-      function openCertModal(index) {
-        currentCertIndex = index;
-        updateCertModal();
-        new bootstrap.Modal(document.getElementById("certModal")).show();
-        dom.topBar.classList.add("hidden");
-      }
-
-      function updateCertModal() {
-        dom.certModalImage.src = certImages[currentCertIndex].full;
-        dom.certCounter.textContent = `${currentCertIndex + 1} / ${
-          certImages.length
-        }`;
-      }
-
-      window.certNextImage = function () {
-        currentCertIndex = (currentCertIndex + 1) % certImages.length;
-        updateCertModal();
-      };
-
-      window.certPrevImage = function () {
-        currentCertIndex =
-          (currentCertIndex - 1 + certImages.length) % certImages.length;
-        updateCertModal();
-      };
-
-      // Gallery Events
-      document.querySelectorAll(".gallery-item").forEach((item, index) => {
-        item.addEventListener("click", () => {
-          const grid = item.closest(".gallery-grid");
-          galleryImages = Array.from(
-            grid.querySelectorAll(".gallery-item img"),
-          ).map((img) => img.src);
-          currentGalleryIndex = galleryImages.indexOf(
-            item.querySelector("img").src,
-          );
-          updateGalleryModal();
-          new bootstrap.Modal(document.getElementById("galleryModal")).show();
-          dom.topBar.classList.add("hidden");
-        });
-      });
-
-      function updateGalleryModal() {
-        dom.galleryModalImage.src = galleryImages[currentGalleryIndex];
-        dom.galleryCounter.textContent = `${currentGalleryIndex + 1} / ${
-          galleryImages.length
-        }`;
-      }
-
-      window.galleryNextImage = function () {
-        currentGalleryIndex = (currentGalleryIndex + 1) % galleryImages.length;
-        updateGalleryModal();
-      };
-
-      window.galleryPrevImage = function () {
-        currentGalleryIndex =
-          (currentGalleryIndex - 1 + galleryImages.length) %
-          galleryImages.length;
-        updateGalleryModal();
-      };
-
-      // Section Toggle
-      dom.certToggle.onclick = () => {
-        dom.certSection.classList.add("active");
-        dom.gallerySection.classList.remove("active");
-        dom.certToggle.classList.add("active");
-        dom.galleryToggle.classList.remove("active");
-        buildCollage();
-      };
-
-      dom.galleryToggle.onclick = () => {
-        dom.gallerySection.classList.add("active");
-        dom.certSection.classList.remove("active");
-        dom.galleryToggle.classList.add("active");
-        dom.certToggle.classList.remove("active");
-      };
-
-      // Language Change
-      dom.langSelect.onchange = (e) => {
-        currentLang = e.target.value;
-        initLanguage();
-      };
-
-      // Modal Close
-      document.querySelectorAll(".modal").forEach((modal) => {
-        modal.addEventListener("hidden.bs.modal", () => {
-          dom.topBar.classList.remove("hidden");
-        });
-      });
-
-      // Mobile Scroll
-      let lastScroll = 0;
-      window.addEventListener("scroll", () => {
-        if (window.innerWidth > 768) return;
-        const current = window.scrollY;
-        if (current > lastScroll && current > 80) {
-          dom.topBar.classList.add("hidden");
-        } else {
-          dom.topBar.classList.remove("hidden");
-        }
-        lastScroll = current;
-      });
-
-      // Resize Handler
-      let resizeTimer;
-      window.addEventListener("resize", () => {
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(buildCollage, 300);
-      });
-
-      // ================= INIT =================
-      window.addEventListener("load", () => {
-        // Hide loading after 1.5s
-        setTimeout(() => {
-          dom.loading.classList.add("hidden");
-        }, 1500);
-
-        // Init everything
-        createParticles();
-        initLanguage();
-        buildCollage();
-      });
-    </script>
+    <script defer src="js/cer.js"></script>
   </body>
 </html>

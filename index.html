@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8" />
@@ -27,7 +27,7 @@
       rel="preload"
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
       as="style"
-      onload="this.rel='stylesheet'"
+      onload="this.rel = 'stylesheet'"
     />
 
     <!-- ICONS -->
@@ -35,7 +35,7 @@
       rel="preload"
       href="assets/icons-main/font/bootstrap-icons.css"
       as="style"
-      onload="this.rel='stylesheet'"
+      onload="this.rel = 'stylesheet'"
     />
 
     <!-- Font Awesome -->
@@ -43,7 +43,7 @@
       rel="preload"
       href="assets/fontawesome-free-7.1.0-web/css/all.min.css"
       as="style"
-      onload="this.rel='stylesheet'"
+      onload="this.rel = 'stylesheet'"
     />
     <noscript>
       <link
@@ -57,7 +57,7 @@
       rel="preload"
       href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css"
       as="style"
-      onload="this.rel='stylesheet'"
+      onload="this.rel = 'stylesheet'"
     />
 
     <!-- ❗ حذف Twemoji CDN لأنه السبب في عدم ظهور الصور على الموبايل -->
@@ -1027,9 +1027,11 @@
                 class="card h-100 border-0 shadow-lg hover-lift overflow-hidden transition-all"
               >
                 <div
-                  class="card-body p-5 text-center h-100 d-flex flex-column justify-content-center"
+                  class="card-body p-5 text-center d-flex flex-column align-items-center justify-content-center h-100"
                 >
-                  <div class="icon-circle mb-4 mx-auto">
+                  <div
+                    class="icon-circle mb-4 d-flex align-items-center justify-content-center"
+                  >
                     <i class="bi bi-lightbulb-fill text-warning fs-1"></i>
                   </div>
                   <h4
@@ -1039,7 +1041,7 @@
                     Business Transformation
                   </h4>
                   <p
-                    class="text-muted lead fs-6 mb-0 flex-grow-1"
+                    class="text-muted lead fs-6 mb-0"
                     data-i18n="rnd.cards.card1.desc"
                   >
                     High-tech services merging IT with agricultural &
@@ -1055,9 +1057,11 @@
                 class="card h-100 border-0 shadow-lg hover-lift overflow-hidden transition-all"
               >
                 <div
-                  class="card-body p-5 text-center h-100 d-flex flex-column justify-content-center"
+                  class="card-body p-5 text-center d-flex flex-column align-items-center justify-content-center h-100"
                 >
-                  <div class="icon-circle mb-4 mx-auto">
+                  <div
+                    class="icon-circle mb-4 d-flex align-items-center justify-content-center"
+                  >
                     <i class="bi bi-trophy-fill text-primary fs-1"></i>
                   </div>
                   <h4
@@ -1067,7 +1071,7 @@
                     Ho.Re.Ca Leadership
                   </h4>
                   <p
-                    class="text-muted lead fs-6 mb-0 flex-grow-1"
+                    class="text-muted lead fs-6 mb-0"
                     data-i18n="rnd.cards.card2.desc"
                   >
                     "Digital Product Passport" for premium pastry & gelato
@@ -1083,9 +1087,11 @@
                 class="card h-100 border-0 shadow-lg hover-lift overflow-hidden transition-all"
               >
                 <div
-                  class="card-body p-5 text-center h-100 d-flex flex-column justify-content-center"
+                  class="card-body p-5 text-center d-flex flex-column align-items-center justify-content-center h-100"
                 >
-                  <div class="icon-circle mb-4 mx-auto">
+                  <div
+                    class="icon-circle mb-4 d-flex align-items-center justify-content-center"
+                  >
                     <i class="bi bi-shield-lock-fill text-success fs-1"></i>
                   </div>
                   <h4
@@ -1095,7 +1101,7 @@
                     Digital Governance
                   </h4>
                   <p
-                    class="text-muted lead fs-6 mb-0 flex-grow-1"
+                    class="text-muted lead fs-6 mb-0"
                     data-i18n="rnd.cards.card3.desc"
                   >
                     Traceability ensuring transparency & fair pricing for

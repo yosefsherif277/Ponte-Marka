@@ -1,8 +1,9 @@
 /* Fonts */
 :root {
-  --default-font: "Roboto", system-ui, -apple-system, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --default-font:
+    "Roboto", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --heading-font: "Raleway", sans-serif;
   --nav-font: "Nunito", sans-serif;
 }
@@ -1300,7 +1301,9 @@ nav ul li a {
 .navmenu {
   display: flex;
   align-items: center;
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
 }
 
 /* Smooth dropdown animation */
@@ -1308,7 +1311,9 @@ nav ul li a {
   opacity: 0;
   transform: translateY(10px);
   visibility: hidden;
-  transition: opacity 0.25s ease, transform 0.25s ease;
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
 }
 
 .dropdown-menu.show {
@@ -1518,7 +1523,9 @@ nav ul li a {
   font-size: 30px;
   z-index: 1000;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s;
 }
 
 .whatsapp-float:hover {
@@ -2105,7 +2112,10 @@ html[lang="ar"] .info-item {
   width: 15px;
   height: 15px;
   border-radius: 50%;
-  transition: background-color 0.4s ease, transform 0.3s ease, opacity 0.4s ease;
+  transition:
+    background-color 0.4s ease,
+    transform 0.3s ease,
+    opacity 0.4s ease;
 }
 
 .carousel-indicators [data-bs-target] {
@@ -2114,7 +2124,10 @@ html[lang="ar"] .info-item {
   height: 10px;
   border-radius: 50%;
   opacity: 1;
-  transition: background-color 0.4s ease, transform 0.3s ease, opacity 0.4s ease;
+  transition:
+    background-color 0.4s ease,
+    transform 0.3s ease,
+    opacity 0.4s ease;
 }
 
 .carousel-indicators [data-bs-target]:hover,
@@ -2458,7 +2471,9 @@ html[dir="rtl"] .pdf-track {
   object-fit: contain;
   display: block;
   margin: 0 auto 20px; /* يضيف مسافة تحت كل صورة */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 /* Hover effect */
@@ -2539,7 +2554,9 @@ html[dir="rtl"] .pdf-track {
   background-color: #0f981b;
 }
 .hover-scale {
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s;
 }
 .hover-scale:hover {
   transform: translateY(-5px);
@@ -3640,4 +3657,17 @@ html[dir="ltr"] .btn i {
   100% {
     transform: translateX(0);
   }
+}
+/* FORCE CENTER FOR FEATURE CARDS - ABSOLUTE OVERRIDE */
+.row.g-4.mb-5.justify-content-center > .col-lg-4 > .card .card-body,
+.row.g-4.mb-5.justify-content-center > .col-lg-4 > .card .card-body * {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  float: none !important;
+  direction: inherit !important;
 }
